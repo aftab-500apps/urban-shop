@@ -15,7 +15,7 @@
         class="space-y-6"
         action="#"
         method="POST"
-        @submit.prevent="handleSubmit"
+        @submit.prevent="handleSignup"
       >
         <!-- ! name -->
         <div>
@@ -91,7 +91,7 @@ const name = ref("");
 const email = ref("");
 const password = ref("");
 
-const handleSubmit = () => {
+const handleSignup = () => {
   if (name.value === "" || email.value === "" || password.value === "") {
     alert("Please fill all the fields!");
   } else {
@@ -108,6 +108,8 @@ const handleSubmit = () => {
     name.value = "";
     email.value = "";
     password.value = "";
+
+    navigateTo("/login");
   }
 };
 </script>

@@ -34,11 +34,7 @@
 
   <footer>
     <li class="list-none flex justify-center text-slate-400 border-t-2 py-2">
-      Copyright &copy; 2024 Anime
+      Copyright &copy; 2024 AnimeSaga
     </li>
   </footer>
 </template>
-
-<script setup>
-console.log("default");
-</script>

@@ -1,14 +1,16 @@
 <template>
   <div
     v-for="item in filteredData"
-    :key="item.id"
+    :key="item.mal_id"
     class="m-auto text-center rounded-lg p-4 w-34 shadow-lg shadow-red-100"
   >
-    <img
-      :src="item.images.jpg.image_url"
-      :alt="`${item.title}`"
-      class="rounded-lg w-30 cursor-pointer"
-    />
+    <NuxtLink :to="`/anime/${item.mal_id}`">
+      <img
+        :src="item.images.jpg.image_url"
+        :alt="`${item.title}`"
+        class="rounded-lg w-30 cursor-pointer"
+      />
+    </NuxtLink>
     <h4 class="m-auto text-slate-800 text-xs font-bold p-2 text-center w-32">
       {{ item.title }}
     </h4>
