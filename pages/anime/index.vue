@@ -20,6 +20,9 @@
 </template>
 
 <script setup>
+definePageMeta({
+  middleware: "auth",
+});
 import { useAnimeStore } from "~/stores/useAnimeStore";
 
 const animeStore = useAnimeStore();
@@ -27,6 +30,4 @@ const animeStore = useAnimeStore();
 onMounted(async () => {
   await animeStore.fetchData();
 });
-
-
 </script>

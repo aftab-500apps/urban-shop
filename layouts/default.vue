@@ -20,9 +20,16 @@
           <NuxtLink to="/signup">Sign up</NuxtLink>
         </li>
         <li
+          v-if="!isLoggedIn"
           class="cursor-pointer border border-red-300 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg hover:uppercase"
         >
           <NuxtLink to="/login">Login</NuxtLink>
+        </li>
+        <li
+          v-if="isLoggedIn"
+          class="cursor-pointer border border-red-300 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg hover:uppercase"
+        >
+          <NuxtLink to="#" @click="handleLogout">Logout</NuxtLink>
         </li>
       </ul>
     </nav>
@@ -38,3 +45,29 @@
     </li>
   </footer>
 </template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+
+const isLoggedIn = ref(false);
+const router = useRouter();
+
+const handleLogout = () => {
+  localStorage.setItem("isLoggedIn", "false");
+  isLoggedIn.value = false;
+  alert("Logged out succesfully");
+  router.push("/login");
+};
+
+onMounted(() => {
+  isLoggedIn.value = localStorage.getItem("isLoggedIn") === "true";
+});
+
+watch(
+  () => localStorage.getItem("isLoggedIn"),
+  (newValue) => {
+    isLoggedIn.value = newValue === "true";
+  }
+);
+</script>

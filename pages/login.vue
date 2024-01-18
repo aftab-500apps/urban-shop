@@ -84,9 +84,9 @@ const handleLogin = () => {
     });
     if (isValid) {
       alert(`login succesful for ${email.value}`);
-
       email.value = "";
       password.value = "";
+      localStorage.setItem("isLoggedIn", "true");
       router.push("/anime");
     } else {
       alert(`invalid credentials`);
