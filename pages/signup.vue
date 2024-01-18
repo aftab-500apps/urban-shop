@@ -11,7 +11,13 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form
+        class="space-y-6"
+        action="#"
+        method="POST"
+        @submit.prevent="handleSubmit"
+      >
+        <!-- ! name -->
         <div>
           <label
             for="name"
@@ -23,11 +29,13 @@
               id="name"
               name="name"
               type="text"
+              v-model="name"
               class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
 
+        <!-- ! email -->
         <div>
           <label
             for="email"
@@ -39,11 +47,13 @@
               id="email"
               name="email"
               type="email"
+              v-model="email"
               class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
 
+        <!-- ! password -->
         <div>
           <div class="flex items-center justify-between">
             <label
@@ -57,24 +67,7 @@
               id="password"
               name="password"
               type="password"
-              class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between">
-            <label
-              for="cnfpassword"
-              class="block text-sm font-medium leading-6 text-slate-600"
-              >Confirm Password</label
-            >
-          </div>
-          <div class="mt-2">
-            <input
-              id="cnfpassword"
-              name="cnfpassword"
-              type="password"
+              v-model="password"
               class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
             />
           </div>
@@ -93,4 +86,28 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const name = ref("");
+const email = ref("");
+const password = ref("");
+
+const handleSubmit = () => {
+  if (name.value === "" || email.value === "" || password.value === "") {
+    alert("Please fill all the fields!");
+  } else {
+    const newUserData = {
+      name: name.value,
+      email: email.value,
+      password: password.value,
+    };
+
+    const existingData = JSON.parse(localStorage.getItem("signupData")) || [];
+    existingData.push(newUserData);
+    localStorage.setItem("signupData", JSON.stringify(existingData));
+
+    name.value = "";
+    email.value = "";
+    password.value = "";
+  }
+};
+</script>
