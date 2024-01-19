@@ -40,9 +40,6 @@ const id = route.params.id;
 
 onMounted(async () => {
   await animeStore.fetchDataById(id);
-  // console.log("detailspage",animeStore.animeDetails.data);
 });
 
-// const { data } = await useFetch(`https://api.jikan.moe/v4/anime/${id}`);
-// console.log(data.value.data);
 </script>

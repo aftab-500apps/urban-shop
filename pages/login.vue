@@ -1,3 +1,4 @@
+
 <template>
   <div
     class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
@@ -11,85 +12,61 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form
-        class="space-y-6"
-        action="#"
-        method="POST"
-        @submit.prevent="handleLogin"
-      >
-        <div>
-          <label
-            for="email"
-            class="block text-sm font-medium leading-6 text-slate-600"
-            >Email address</label
-          >
-          <div class="mt-2">
-            <input
-              id="email"
-              name="email"
-              type="email"
-              v-model="email"
-              autocomplete="email"
-              class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
-
-        <div>
-          <div class="flex items-center justify-between">
-            <label
-              for="password"
-              class="block text-sm font-medium leading-6 text-slate-600"
-              >Password</label
-            >
-          </div>
-          <div class="mt-2">
-            <input
-              id="password"
-              name="password"
-              v-model="password"
-              type="password"
-              autocomplete="current-password"
-              class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
-            />
-          </div>
-        </div>
-
-        <div>
-          <button
-            type="submit"
-            class="flex w-full justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
-          >
-            Log in
-          </button>
-        </div>
-      </form>
+      <AuthForm
+        :formFields="loginFormFields"
+        :submitButtonText="loginSubmitButtonText"
+        :handleSubmit="handleLogin"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-const email = ref("");
-const password = ref("");
-const router = useRouter();
+import AuthForm from "~/components/AuthForm.vue";
+
+const loginFormFields = ref([
+  {
+    name: "email",
+    label: "Email address",
+    type: "email",
+    value: "",
+    autocomplete: "email",
+  },
+  {
+    name: "password",
+    label: "Password",
+    type: "password",
+    value: "",
+    autocomplete: "current-password",
+  },
+]);
+
+const loginSubmitButtonText = "Log in";
 
 const handleLogin = () => {
-  if (email.value === "" || password.value === "") {
+  console.log("Handling login...");
+  const [emailField, passwordField] = loginFormFields.value;
+  const email = emailField.value;
+  const password = passwordField.value;
+
+  if (email === "" || password === "") {
     alert("Please fill all the fields!");
   } else {
     const signupData = JSON.parse(localStorage.getItem("signupData"));
-
     const isValid = signupData.some((ele) => {
-      return ele.email === email.value && ele.password === password.value;
+      return ele.email === email && ele.password === password;
     });
     if (isValid) {
-      alert(`login succesful for ${email.value}`);
-      email.value = "";
-      password.value = "";
+      // Clear the values in loginFormFields
+      loginFormFields.value.forEach((field) => {
+        field.value = "";
+      });
+
+      alert(`Login successful for ${email}`);
       localStorage.setItem("isLoggedIn", "true");
-      router.push("/anime");
+      navigateTo("/anime");
     } else {
-      alert(`invalid credentials`);
+      alert(`Invalid credentials`);
     }
   }
 };

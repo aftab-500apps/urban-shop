@@ -1,6 +1,5 @@
 <template>
   <div
-    v-for="item in filteredData"
     :key="item.mal_id"
     class="m-auto text-center rounded-lg p-4 w-34 shadow-lg shadow-red-100"
   >
@@ -30,8 +29,9 @@
 <script setup>
 import { defineProps } from "vue";
 const props = defineProps({
-  filteredData: {
-    type: Array,
+
+  item: {
+    type: Object,
     required: true,
   },
 });

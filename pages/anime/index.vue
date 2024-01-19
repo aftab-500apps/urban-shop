@@ -14,7 +14,7 @@
       class="m-auto grid justify-center items-center grid-cols-4 gap-5 p-4"
       v-if="animeStore.animeData?.data"
     >
-      <ShowCard :filteredData="animeStore.animeData.data" />
+      <ShowCard v-for="item in animeStore.animeData.data" :item="item" />
     </section>
   </section>
 </template>
