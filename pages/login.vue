@@ -44,7 +44,6 @@ const loginFormFields = ref([
 const loginSubmitButtonText = "Log in";
 
 const handleLogin = () => {
-  console.log("Handling login...");
   const [emailField, passwordField] = loginFormFields.value;
   const email = emailField.value;
   const password = passwordField.value;

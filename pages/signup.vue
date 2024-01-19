@@ -50,7 +50,6 @@ const signupFormFields = ref([
 const signupSubmitButtonText = "Sign up";
 
 const handleSignup = () => {
-  console.log("Handling signup...");
 
   if (signupFormFields.value.some((field) => field.value === "")) {
     alert("Please fill all the fields!");
