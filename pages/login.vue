@@ -5,7 +5,7 @@
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <h2
-        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-slate-600"
+        class="mt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
       >
         Log in
       </h2>

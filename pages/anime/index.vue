@@ -1,6 +1,8 @@
 <template>
   <section>
-    <h1 class="text-slate-600 text-center text-xl">ENTER ANIME SAGA</h1>
+    <Heading class="text-slate-600 text-center text-xl"
+      >ENTER ANIME SAGA</Heading
+    >
 
     <section
       class="m-auto grid justify-center items-center grid-cols-4 gap-5 p-4"
@@ -14,6 +16,7 @@
 <script setup>
 definePageMeta({
   middleware: "auth",
+  layout: "custom",
 });
 import { useAnimeStore } from "~/stores/useAnimeStore";
 

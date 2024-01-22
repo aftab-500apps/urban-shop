@@ -4,7 +4,7 @@
   >
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <h2
-        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-slate-600"
+        class="mt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
       >
         Sign up
       </h2>
@@ -22,6 +22,8 @@
 
 <script setup>
 import AuthForm from "~/components/AuthForm.vue";
+import usePassValidato from "~/composables/usePassValidator";
+const { validatePassword } = usePassValidato();
 
 const signupFormFields = ref([
   {
@@ -50,27 +52,32 @@ const signupFormFields = ref([
 const signupSubmitButtonText = "Sign up";
 
 const handleSignup = () => {
-
   if (signupFormFields.value.some((field) => field.value === "")) {
     alert("Please fill all the fields!");
   } else {
-    const newUserData = {
-      name: signupFormFields.value[0].value,
-      email: signupFormFields.value[1].value,
-      password: signupFormFields.value[2].value,
-    };
+    //
+    if (validatePassword(signupFormFields.value[2].value)) {
+      const newUserData = {
+        name: signupFormFields.value[0].value,
+        email: signupFormFields.value[1].value,
+        password: signupFormFields.value[2].value,
+      };
 
-    const existingData = JSON.parse(localStorage.getItem("signupData")) || [];
-    existingData.push(newUserData);
-    localStorage.setItem("signupData", JSON.stringify(existingData));
+      const existingData = JSON.parse(localStorage.getItem("signupData")) || [];
+      existingData.push(newUserData);
+      localStorage.setItem("signupData", JSON.stringify(existingData));
 
-    // Reset the entire signupFormFields array
-    signupFormFields.value = signupFormFields.value.map((field) => ({
-      ...field,
-      value: "",
-    }));
+      signupFormFields.value = signupFormFields.value.map((field) => ({
+        ...field,
+        value: "",
+      }));
 
-    navigateTo("/login");
+      navigateTo("/login");
+    } else {
+      alert(
+        "Password must be 8 characters with 1 capital , 1 small , 1 digit and 1 special character"
+      );
+    }
   }
 };
 </script>

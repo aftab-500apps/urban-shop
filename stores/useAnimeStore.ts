@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useAnimeStore = defineStore("animeapi", () => {
   const animeData = ref(null);
   const animeDetails = ref(null);
+  const animeTop = ref(null);
 
   const fetchData = async () => {
     try {
@@ -26,5 +27,22 @@ export const useAnimeStore = defineStore("animeapi", () => {
     }
   };
 
-  return { animeData, animeDetails, fetchData, fetchDataById };
+  const fetchTopAnime = async () => {
+    try {
+      const response = await fetch(`https://api.jikan.moe/v4/top/characters`);
+      const result = await response.json();
+      animeTop.value = result;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  return {
+    animeData,
+    animeDetails,
+    fetchData,
+    fetchDataById,
+    fetchTopAnime,
+    animeTop,
+  };
 });

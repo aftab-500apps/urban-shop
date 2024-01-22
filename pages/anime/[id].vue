@@ -18,8 +18,7 @@
         <h3 class="text-2xl my-7">
           {{ animeStore.animeDetails?.data?.rating }}
         </h3>
-        <!-- <p class="text-xl my-7">Price: ${{ data.value.data.price }}</p> -->
-        <h2 class="font-bold border-b-2 mb-4 pb-2">Synopsis</h2>
+        <h2 class="font-500 border-b-2 mb-4 pb-2">Synopsis</h2>
         <p class="mb-7">{{ animeStore.animeDetails?.data?.synopsis }}</p>
       </div>
     </section>

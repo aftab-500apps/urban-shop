@@ -7,7 +7,7 @@
       <img
         :src="item.images.jpg.image_url"
         :alt="`${item.title}`"
-        class="rounded-lg w-30 cursor-pointer"
+        class="rounded-lg w-30 cursor-pointer shadow-red-400"
       />
     </NuxtLink>
     <h4 class="m-auto text-slate-800 text-xs font-bold p-2 text-center w-32">
@@ -23,16 +23,20 @@
     >
       {{ item.status }}
     </p>
+    <Icon
+      name="uil:heart"
+      class="cursor-pointer text-slate-500"
+    />
   </div>
 </template>
 
 <script setup>
 import { defineProps } from "vue";
 const props = defineProps({
-
   item: {
     type: Object,
     required: true,
   },
 });
+
 </script>

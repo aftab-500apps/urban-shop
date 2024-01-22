@@ -20,12 +20,12 @@
     </div>
 
     <div>
-      <button
+      <Button
         type="submit"
         class="flex w-full justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
       >
         {{ submitButtonText }}
-      </button>
+      </Button>
     </div>
   </form>
 </template>

@@ -10,11 +10,6 @@
         >
           <NuxtLink :to="`${link.to}`">{{ link.title }}</NuxtLink>
         </li>
-        <li
-          class="cursor-pointer border border-red-300 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg hover:uppercase"
-        >
-          <NuxtLink to="#" @click="handleLogout">Logout</NuxtLink>
-        </li>
       </ul>
     </nav>
   </header>
