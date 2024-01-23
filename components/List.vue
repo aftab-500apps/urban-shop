@@ -1,5 +1,5 @@
 <template>
-  <li>{{ msg }}</li>
+  <li class="list-none text-slate-600 text-sm m-1 text-center">{{ msg }}</li>
 </template>
 
 <script setup>

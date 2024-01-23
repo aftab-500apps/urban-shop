@@ -28,12 +28,23 @@
 
   <div class="container flex justify-around items-center">
     <SpamContainer title="SPAM" :data="spamArr" />
+    <SpamContainer title="Spam Words" :data="spamWords" />
     <SpamContainer title="WORK" :data="workArr" />
   </div>
 </template>
 
 <script setup>
 const { filterSpam } = useNuxtApp();
+
+const spamWords = [
+  "guaranteed job",
+  "earn money",
+  "won a lottery",
+  "free gift",
+  "Free investment",
+  "Free membership",
+  "Free money",
+];
 
 const msg = ref("");
 const result = ref(null);
