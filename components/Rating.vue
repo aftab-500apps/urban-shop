@@ -1,7 +1,9 @@
 <template>
-  <div class="container flex items-center p-2 gap-3">
-    <h2>Your Rating : {{ rating }}</h2>
-    <Button class="shadow-md shadow-red-200 p-1 rounded-md">
+  <div
+    class="container flex items-center justify-start p-2 gap-3 bg-red-600 text-white font-bold w-48 rounded-md shadow-lg shadow-red-300 ml-10"
+  >
+    <SubHeading>Your Rating : {{ rating }}</SubHeading>
+    <Button class="p-1 rounded-md bg-white text-red-600">
       <Icon name="uil:heart" class="cursor-pointer" @click="increaseRating" />
     </Button>
   </div>

@@ -1,9 +1,9 @@
 <template>
-  <h2
+  <SubHeading
     class="mt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
   >
     Spam Filter
-  </h2>
+  </SubHeading>
 
   <div class="flex flex-col items-center justify-center gap-4">
     <input
@@ -60,5 +60,7 @@ const handleClick = () => {
   } else {
     workArr.value.push(msg.value);
   }
+
+  msg.value = ""
 };
 </script>

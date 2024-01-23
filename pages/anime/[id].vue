@@ -12,13 +12,13 @@
         />
       </div>
       <div class="p-7">
-        <h2 class="text-4xl my-7">
+        <SubHeading class="text-4xl my-7">
           {{ animeStore.animeDetails?.data?.title }}
-        </h2>
+        </SubHeading>
         <h3 class="text-2xl my-7">
           {{ animeStore.animeDetails?.data?.rating }}
         </h3>
-        <h2 class="font-500 border-b-2 mb-4 pb-2">Synopsis</h2>
+        <SubHeading class="font-500 border-b-2 mb-4 pb-2">Synopsis</SubHeading>
         <p class="mb-7">{{ animeStore.animeDetails?.data?.synopsis }}</p>
       </div>
     </section>
@@ -29,6 +29,7 @@
 <script setup>
 definePageMeta({
   middleware: "auth",
+  layout: "custom",
 });
 
 import { useAnimeStore } from "~/stores/useAnimeStore";
@@ -40,5 +41,4 @@ const id = route.params.id;
 onMounted(async () => {
   await animeStore.fetchDataById(id);
 });
-
 </script>

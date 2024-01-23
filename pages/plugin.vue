@@ -1,4 +1,8 @@
 <script setup>
+definePageMeta({
+  layout: "custom",
+});
+
 const { even, getPun } = useNuxtApp();
 const pun = ref("");
 
@@ -14,11 +18,19 @@ onMounted(() => {
 </script>
 
 <template>
-  <h2
+  <SubHeading
     class="mt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
   >
     Plugins
-  </h2>
+  </SubHeading>
+
+  <div
+    class="flex min-h-full flex-1 flex-col items-center gap-3 justify-center px-6 py-2 lg:px-8"
+  >
+    <SpamFilter />
+  </div>
+
+  <RuleComponent />
 
   <div>
     <h3
@@ -28,7 +40,7 @@ onMounted(() => {
     </h3>
   </div>
 
-  <Hr />
+  <RuleComponent />
 
   <div
     class="flex w-full justify-center flex-col items-center p-4 shadow-md shadow-red-300 m-auto mt-10 rounded"
@@ -44,11 +56,5 @@ onMounted(() => {
     </Heading>
   </div>
 
-  <Hr />
-
-  <div
-    class="flex min-h-full flex-1 flex-col items-center gap-3 justify-center px-6 py-2 lg:px-8"
-  >
-    <SpamFilter />
-  </div>
+  <RuleComponent />
 </template>

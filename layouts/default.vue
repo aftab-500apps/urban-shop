@@ -6,7 +6,7 @@
       >
         <li
           v-for="link in linksObj"
-          class="cursor-pointer border border-red-300 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg hover:uppercase"
+          class="cursor-pointer border border-red-300 w-24 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
         >
           <NuxtLink :to="`${link.to}`">{{ link.title }}</NuxtLink>
         </li>
@@ -16,8 +16,10 @@
 
   <slot />
 
-  <footer>
-    <li class="list-none flex justify-center text-slate-400 border-t-2 py-2">
+  <footer class="mt-60">
+    <li
+      class="list-none flex justify-center text-slate-400 border-t-2 py-2 mt-4"
+    >
       Copyright &copy; 2024 AnimeSaga
     </li>
   </footer>
@@ -33,35 +35,34 @@ const linksObj = [
     to: "/",
   },
   {
+    id: 5,
+    title: "Anime",
+    to: "/anime",
+  },
+  {
     id: 2,
     title: "Plugin",
     to: "/plugin",
   },
   {
     id: 3,
-    title: "Anime",
-    to: "/anime",
+    title: "JavaScript",
+    to: "/javascript",
   },
   {
     id: 4,
     title: "Sign up",
     to: "/signup",
   },
+
   {
-    id: 5,
+    id: 6,
     title: "Login",
     to: "/login",
   },
 ];
 
 const isLoggedIn = ref(false);
-
-const handleLogout = () => {
-  localStorage.setItem("isLoggedIn", "false");
-  isLoggedIn.value = false;
-  alert("Logged out succesfully");
-  navigateTo("/login");
-};
 
 onMounted(() => {
   isLoggedIn.value = localStorage.getItem("isLoggedIn") === "true";
