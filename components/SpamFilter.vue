@@ -27,26 +27,8 @@
   </div>
 
   <div class="container flex justify-around items-center">
-    <div class="w-60 p-4 h-60 shadow-md shadow-red-300">
-      <h3
-        class="mt-4 text-center text-1xl font-bold leading-9 tracking-tight text-red-700"
-      >
-        SPAM
-      </h3>
-      <div>
-        <li v-for="msg in spamArr" :key="msg">{{ msg }}</li>
-      </div>
-    </div>
-    <div class="w-60 p-4 h-60 shadow-md shadow-red-300">
-      <h3
-        class="mt-4 text-center text-1xl font-bold leading-9 tracking-tight text-slate-600"
-      >
-        WORK
-      </h3>
-      <div>
-        <li v-for="msg in workArr" :key="msg">{{ msg }}</li>
-      </div>
-    </div>
+    <SpamContainer title="SPAM" :data="spamArr" />
+    <SpamContainer title="WORK" :data="workArr" />
   </div>
 </template>
 

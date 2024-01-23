@@ -5,9 +5,11 @@ export default defineNuxtPlugin((nuxtApp) => {
       /earn money/i,
       /won a lottery/i,
       /free gift/i,
+      /Free investment/i,
+      /Free membership/i,
+      /Free money/i,
     ];
 
     return spamPatterns.some((pattern) => pattern.test(msg));
   };
 });
-
