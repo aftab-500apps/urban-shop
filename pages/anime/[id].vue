@@ -22,7 +22,9 @@
         <p class="mb-7">{{ animeStore.animeDetails?.data?.synopsis }}</p>
       </div>
     </section>
-    <p v-else>Loading...</p>
+    <p v-else>
+      <NuxtLoadingIndicator />
+    </p>
   </div>
 </template>
 
