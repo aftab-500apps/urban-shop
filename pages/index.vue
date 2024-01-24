@@ -19,11 +19,10 @@
 </template>
 
 <script setup>
-// definePageMeta({
-  // middleware: "auth",
-
-  // layout: "custom"
-// })
+definePageMeta({
+  middleware: "auth",
+  layout: "custom"
+})
 import { useAnimeStore } from "~/stores/useAnimeStore";
 const animeStore = useAnimeStore();
 

@@ -6,7 +6,6 @@
       >
         <li
           v-for="link in linksObj"
-          v-bind:aria-disabled="link.disabled"
           class="cursor-pointer border border-red-300 w-28 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
         >
           <NuxtLink :to="`${link.to}`">{{ link.title }}</NuxtLink>

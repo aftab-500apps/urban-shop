@@ -16,15 +16,15 @@
           :key="item.id"
           class="border-b border-gray-300"
         >
-          <td class="py-2 px-4">
+          <td class="py-2 px-4 h-20 flex flex-col justify-center items-start gap-1">
             <a
               :href="`${forumTopicUrl}${item.slug}/${item.id}`"
-              class="text-red-400 font-bold hover:underline"
+              class="text-red-400 font-bold rounded hover:underline"
             >
               {{ item.title }}
             </a>
-            <br />
-            <span class="m-2 p-1 border-2 border-red-100">{{
+            
+            <span class="p-1 border-2 border-red-100">{{
               forumCategory(item.category_id)
             }}</span>
           </td>
