@@ -1,7 +1,6 @@
 <template>
-  <div
-    class="flex flex-1 flex-col justify-center px-6 py-12 lg:px-8"
-  >
+  <div class="flex flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <Heading class="uppercase font-bold">Enter Anime Saga</Heading>
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <SubHeading
         class="mt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
@@ -57,20 +56,27 @@ const handleSignup = () => {
   } else {
     //
     if (validatePassword(signupFormFields.value[2].value)) {
-      const newUserData = {
-        name: signupFormFields.value[0].value,
-        email: signupFormFields.value[1].value,
-        password: signupFormFields.value[2].value,
-      };
-
       const existingData = JSON.parse(localStorage.getItem("signupData")) || [];
-      existingData.push(newUserData);
-      localStorage.setItem("signupData", JSON.stringify(existingData));
+      const alreadyExists = existingData.some(
+        (user) => user.email === signupFormFields.value[1].value
+      );
 
-      signupFormFields.value = signupFormFields.value.map((field) => ({
-        ...field,
-        value: "",
-      }));
+      if (alreadyExists) {
+        alert("user already exists!");
+      } else {
+        const newUserData = {
+          name: signupFormFields.value[0].value,
+          email: signupFormFields.value[1].value,
+          password: signupFormFields.value[2].value,
+        };
+        existingData.push(newUserData);
+        localStorage.setItem("signupData", JSON.stringify(existingData));
+
+        signupFormFields.value = signupFormFields.value.map((field) => ({
+          ...field,
+          value: "",
+        }));
+      }
 
       navigateTo("/login");
     } else {

@@ -24,7 +24,7 @@
     <div class="m-auto w-1/2 border-2 rounded-lg flex flex-col mb-3">
       <div class="flex flex-col gap-2 justify-center items-center p-3">
         <div>
-          <label for="taskName" class="text-slate-600" >Task Name:</label>
+          <label for="taskName" class="text-slate-600">Task Name:</label>
           <input
             v-model="taskName"
             type="text"
@@ -32,7 +32,7 @@
             class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
           />
 
-          <label for="dueDate" class="text-slate-600" >Due Date:</label>
+          <label for="dueDate" class="text-slate-600">Due Date:</label>
           <input
             v-model="dueDate"
             type="date"
@@ -73,10 +73,11 @@
 
 <script setup>
 definePageMeta({
+  middleware: "auth",
   layout: "custom",
 });
 
-// ! prototype simple
+// ! prototype simple example
 const animal = {
   eats: true,
 };
@@ -86,21 +87,18 @@ const rabbit = {
 };
 
 rabbit.__proto__ = animal;
-// animal.__proto__ = rabbit;
 
 for (const key in rabbit) {
   let isOwn = rabbit.hasOwnProperty(key);
-
   if (isOwn) {
     console.log(`Our : ${key}`);
   } else {
     console.log(`inherited : ${key}`);
   }
 }
+// console.log(rabbit);
 
-console.log(rabbit);
-
-// ! __proto__
+// ! __proto__ chaining example
 
 // let head = {
 //   glasses: 1,

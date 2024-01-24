@@ -38,7 +38,6 @@ const feedbackGenerator = () => {
   const sendFeedback = () => {
     if (feedback.value.trim() !== "") {
       feedbacks.value.push(feedback.value);
-      console.log(`feedback sent: ${feedback.value}`);
       feedback.value = "";
     }
   };
@@ -52,6 +51,8 @@ const feedbackGenerator = () => {
 
 const { feedback, sendFeedback, getFeedbacks } = feedbackGenerator();
 
+
+// closure example
 // const outerFunction = () => {
 //   let outerVariable = "I am outer variable";
 

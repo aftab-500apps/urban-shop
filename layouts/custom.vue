@@ -6,7 +6,8 @@
       >
         <li
           v-for="link in linksObj"
-          class="cursor-pointer border border-red-300 w-24 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
+          v-bind:aria-disabled="link.disabled"
+          class="cursor-pointer border border-red-300 w-28 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
         >
           <NuxtLink :to="`${link.to}`">{{ link.title }}</NuxtLink>
         </li>
@@ -33,11 +34,6 @@ import { ref, onMounted } from "vue";
 
 const linksObj = [
   {
-    id: 1,
-    title: "Home",
-    to: "/",
-  },
-  {
     id: 2,
     title: "Plugin",
     to: "/plugin",
@@ -49,6 +45,11 @@ const linksObj = [
   },
   {
     id: 4,
+    title: "Leaderboard",
+    to: "/leaderboard",
+  },
+  {
+    id: 5,
     title: "JavaScript",
     to: "/javascript",
   },

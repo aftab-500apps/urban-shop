@@ -34,29 +34,29 @@ const linksObj = [
     title: "Home",
     to: "/",
   },
+  //   {
+  //     id: 5,
+  //     title: "Anime",
+  //     to: "/anime",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Plugin",
+  //     to: "/plugin",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "JavaScript",
+  //     to: "/javascript",
+  //   },
   {
-    id: 5,
-    title: "Anime",
-    to: "/anime",
-  },
-  {
-    id: 2,
-    title: "Plugin",
-    to: "/plugin",
-  },
-  {
-    id: 3,
-    title: "JavaScript",
-    to: "/javascript",
-  },
-  {
-    id: 4,
+    id: 41,
     title: "Sign up",
     to: "/signup",
   },
 
   {
-    id: 6,
+    id: 61,
     title: "Login",
     to: "/login",
   },
