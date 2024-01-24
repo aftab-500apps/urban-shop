@@ -33,6 +33,11 @@ import { ref, onMounted } from "vue";
 
 const linksObj = [
   {
+    id: 1,
+    title: "Home",
+    to: "/",
+  },
+  {
     id: 2,
     title: "Plugin",
     to: "/plugin",

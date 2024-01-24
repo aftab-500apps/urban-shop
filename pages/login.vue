@@ -1,7 +1,6 @@
 <template>
-  <div
-    class="flex h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
-  >
+  <div class="flex h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <Heading class="uppercase font-bold">Enter Anime Saga</Heading>
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <SubHeading
         class="mt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
@@ -50,21 +49,26 @@ const handleLogin = () => {
   if (email === "" || password === "") {
     alert("Please fill all the fields!");
   } else {
-    const signupData = JSON.parse(localStorage.getItem("signupData"));
-    const isValid = signupData.some((ele) => {
-      return ele.email === email && ele.password === password;
-    });
-    if (isValid) {
-      // Clear the values in loginFormFields
-      loginFormFields.value.forEach((field) => {
-        field.value = "";
-      });
+    const signupData = JSON.parse(localStorage.getItem("signupData")) || [];
 
-      alert(`Login successful for ${email}`);
-      localStorage.setItem("isLoggedIn", "true");
-      navigateTo("/anime");
+    if (Array.isArray(signupData)) {
+      const isValid = signupData.some((ele) => {
+        return ele.email === email && ele.password === password;
+      });
+      // console.log(isValid);
+      if (isValid) {
+        loginFormFields.value.forEach((field) => {
+          field.value = "";
+        });
+
+        alert(`Login successful for ${email}`);
+        localStorage.setItem("isLoggedIn", "true");
+        navigateTo("/anime");
+      } else {
+        alert("Invalid Credentials");
+      }
     } else {
-      alert(`Invalid credentials`);
+      alert("Invalid credentials");
     }
   }
 };

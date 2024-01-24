@@ -6,7 +6,7 @@
       >
         <li
           v-for="link in linksObj"
-          class="cursor-pointer border border-red-300 w-24 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
+          class="cursor-pointer border border-red-300 w-28 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
         >
           <NuxtLink :to="`${link.to}`">{{ link.title }}</NuxtLink>
         </li>
@@ -34,21 +34,26 @@ const linksObj = [
     title: "Home",
     to: "/",
   },
-  //   {
-  //     id: 5,
-  //     title: "Anime",
-  //     to: "/anime",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Plugin",
-  //     to: "/plugin",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "JavaScript",
-  //     to: "/javascript",
-  //   },
+  {
+    id: 5,
+    title: "Anime",
+    to: "/anime",
+  },
+  {
+    id: 2,
+    title: "Plugin",
+    to: "/plugin",
+  },
+  {
+    id: 3,
+    title: "JavaScript",
+    to: "/javascript",
+  },
+  {
+    id: 4,
+    title: "Leaderboard",
+    to: "/leaderboard",
+  },
   {
     id: 41,
     title: "Sign up",

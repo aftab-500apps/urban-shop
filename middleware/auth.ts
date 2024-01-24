@@ -8,6 +8,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
   if (isLoggedIn) {
     return;
   } else {
+    alert("Login first");
     return {
       path: "/login",
       replace: true,
