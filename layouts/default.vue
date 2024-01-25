@@ -6,7 +6,7 @@
       >
         <li
           v-for="link in linksObj"
-          class="cursor-pointer border border-red-300 w-28 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
+          class="cursor-pointer border border-red-300 w-32 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
         >
           <NuxtLink :to="`${link.to}`">{{ link.title }}</NuxtLink>
         </li>
@@ -51,8 +51,8 @@ const linksObj = [
   },
   {
     id: 4,
-    title: "Leaderboard",
-    to: "/leaderboard",
+    title: "Freecodecamp",
+    to: "/freecodecamp/leaderboard",
   },
   {
     id: 41,

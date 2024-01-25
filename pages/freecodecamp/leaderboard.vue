@@ -1,7 +1,8 @@
 <template>
+  <SubNavbar />
   <Heading>Latest Topics</Heading>
   <div class="p-3">
-    <table class="w-70% m-auto rounded-lg shadow-lg shadow-red-100 mt-4">
+    <table class="w-full m-auto rounded-lg shadow-lg shadow-red-100 mt-4">
       <thead class="bg-red-400 text-white">
         <tr>
           <th class="py-2 px-4">Topics</th>
@@ -12,18 +13,21 @@
       </thead>
       <tbody>
         <tr
-          v-for="item in topics"
+          v-for="item in topics.slice(startIndexPage, endIndexPage)"
           :key="item.id"
           class="border-b border-gray-300"
         >
-          <td class="py-2 px-4 h-20 flex flex-col justify-center items-start gap-1">
+          <td
+            class="py-2 px-4 h-20 flex flex-col justify-center items-start gap-1"
+          >
             <a
               :href="`${forumTopicUrl}${item.slug}/${item.id}`"
+              target="_blank"
               class="text-red-400 font-bold rounded hover:underline"
             >
               {{ item.title }}
             </a>
-            
+
             <span class="p-1 border-2 border-red-100">{{
               forumCategory(item.category_id)
             }}</span>
@@ -36,6 +40,23 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="mt-4 flex justify-center items-center">
+      <Button
+        @click="prevPage"
+        :disabled="startIndexPage === 0"
+        class="px-4 py-2 mx-2 mb-10 bg-red-400 text-white rounded hover:bg-red-500"
+      >
+        Prev Page
+      </Button>
+      <Button
+        @click="nextPage"
+        :disabled="endIndexPage === topics.length"
+        class="px-4 py-2 mx-2 mb-10 bg-red-400 text-white rounded hover:bg-red-500"
+      >
+        Next Page
+      </Button>
+    </div>
   </div>
 </template>
 
@@ -48,9 +69,23 @@ definePageMeta({
 import { ref, onMounted } from "vue";
 
 const forumLatest = "https://forum-proxy.freecodecamp.rocks/latest";
-const forumCategoryUrl = "https://forum.freecodecamp.org/c/";
 const forumTopicUrl = "https://forum.freecodecamp.org/t/";
-const avatarUrl = "https://sea1.discourse-cdn.com/freecodecamp";
+
+const topics = ref([]);
+const users = ref([]);
+
+onMounted(async () => {
+  try {
+    const res = await fetch(forumLatest);
+    const data = await res.json();
+    topics.value = data.topic_list.topics;
+    users.value = data.users;
+
+    // console.log(topics.value);
+  } catch (err) {
+    console.error(err);
+  }
+});
 
 const allCategories = {
   299: { category: "Career Advice" },
@@ -96,17 +131,16 @@ const viewCount = (views) => {
   return views >= 1000 ? `${thousands}k` : views.toString();
 };
 
-const topics = ref([]);
-const users = ref([]);
+const endIndexPage = ref(10);
+const startIndexPage = ref(0);
 
-onMounted(async () => {
-  try {
-    const res = await fetch(forumLatest);
-    const data = await res.json();
-    topics.value = data.topic_list.topics;
-    users.value = data.users;
-  } catch (err) {
-    console.error(err);
-  }
-});
+const nextPage = () => {
+  startIndexPage.value += 10;
+  endIndexPage.value += 10;
+};
+
+const prevPage = () => {
+  startIndexPage.value -= 10;
+  endIndexPage.value -= 10;
+};
 </script>
