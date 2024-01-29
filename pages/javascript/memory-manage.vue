@@ -55,7 +55,7 @@ definePageMeta({
 
 let box_1 = {
   width: query_num.value,
-  color: null,
+  color: "red",
 };
 
 let box_2 = reactive(box_1);
