@@ -47,7 +47,7 @@ const linksObj = [
   {
     id: 3,
     title: "JavaScript",
-    to: "/javascript",
+    to: "/javascript/closures",
   },
   {
     id: 4,

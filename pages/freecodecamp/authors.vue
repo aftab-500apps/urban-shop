@@ -1,5 +1,6 @@
 <template>
-  <SubNavbar />
+  <SubNavbar :links="fccNavLinks" />
+  <!-- <SubNavbar /> -->
   <Heading>News Authors Page</Heading>
 
   <div class="grid grid-cols-2 m-auto gap-4 ml-4 mr-4 mb-4">
@@ -39,6 +40,9 @@ definePageMeta({
   middleware: "auth",
   layout: "custom",
 });
+
+import { fccNavLinks } from "~/data/common.json";
+console.log(fccNavLinks);
 
 const authorsArr = ref([]);
 const visibleAuthors = ref(8);

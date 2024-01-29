@@ -1,0 +1,27 @@
+{
+  "fccNavLinks": [
+    {
+      "title": "Leaderboard",
+      "path": "/freecodecamp/leaderboard"
+    },
+    {
+      "title": "Authors",
+      "path": "/freecodecamp/authors"
+    }
+  ],
+
+  "jsNavLinks": [
+    {
+      "title": "Closures",
+      "path": "/javascript/closures"
+    },
+    {
+      "title": "Prototype",
+      "path": "/javascript/prototype"
+    },
+    {
+      "title": "Memory Management",
+      "path": "/javascript/memory-manage"
+    }
+  ]
+}

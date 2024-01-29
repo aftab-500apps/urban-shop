@@ -55,7 +55,7 @@ const linksObj = [
   {
     id: 5,
     title: "JavaScript",
-    to: "/javascript",
+    to: "/javascript/closures",
   },
 ];
 

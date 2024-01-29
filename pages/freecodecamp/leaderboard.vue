@@ -1,5 +1,5 @@
 <template>
-  <SubNavbar />
+  <SubNavbar :links="fccNavLinks" />
   <Heading>Latest Topics</Heading>
   <div class="p-3">
     <table class="w-full m-auto rounded-lg shadow-lg shadow-red-100 mt-4">
@@ -65,6 +65,8 @@ definePageMeta({
   layout: "custom",
   middleware: "auth",
 });
+
+import { fccNavLinks } from "~/data/common.json";
 
 import { ref, onMounted } from "vue";
 
