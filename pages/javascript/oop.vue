@@ -30,7 +30,7 @@
         >Add Character</Button
       >
     </div>
-    <div class="flex flex-col m-auto border-2">
+    <div class="flex flex-col m-auto">
       <SubHeading class="text-xl m-4 font-500 text-slate-600 text-center"
         >Know the universe</SubHeading
       >
@@ -44,7 +44,7 @@
 
       <div class="m-4">
         <h2 class="text-xl font-semibold mb-2">Characters</h2>
-        <ul>
+        <ul class="p-3">
           <li v-for="character in filteredCharacters" :key="character.name">
             {{ character.name }} from {{ character.universe }}
           </li>
