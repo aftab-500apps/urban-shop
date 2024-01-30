@@ -22,6 +22,10 @@
     {
       "title": "Memory Management",
       "path": "/javascript/memory-manage"
+    },
+    {
+      "title": "OOP",
+      "path": "/javascript/oop"
     }
   ]
 }
