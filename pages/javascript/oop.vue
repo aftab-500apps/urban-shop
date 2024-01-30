@@ -43,9 +43,9 @@
       />
 
       <div class="m-4">
-        <h2 class="text-xl font-semibold mb-2">Characters</h2>
-        <ul class="p-3">
-          <li v-for="character in filteredCharacters" :key="character.name">
+        <h2 class="text-xl m-4 font-500 text-slate-600 text-center">Characters</h2>
+        <ul class="p-3 list-decimal">
+          <li class="text-slate-600 text-center" v-for="character in filteredCharacters" :key="character.name">
             {{ character.name }} from {{ character.universe }}
           </li>
         </ul>
@@ -55,6 +55,51 @@
 </template>
 
 <script setup>
+
+
+class Person {
+  name = ""; // or name;
+
+  constructor(name) {
+    this.name = name;
+  }
+
+  introduceSelf() {
+    console.log(`Hi, I am ${this.name}`);
+  }
+}
+
+// const sasuke = new Person("Sasuke");
+// sasuke.introduceSelf()
+
+class Professor extends Person {
+  teaches = "";
+
+  constructor(name, teaches) {
+    super(name);
+    this.teaches = teaches;
+  }
+
+  introduceSelf() {
+    // return `My name is ${this.name} & i will be teaching ${this.teaches}`;
+    console.log(`My name is ${this.name} & i will be teaching ${this.teaches}`);
+  }
+
+  #experience() {
+    console.log(`Master of 1000 jutsu.`);
+  }
+
+  masterOf() {
+    this.#experience();
+  }
+}
+
+const kakashi = new Professor("kakashi", "jutsu");
+kakashi.introduceSelf();
+// kakashi.masterOf();
+// kakashi.#experience(); // not accesible
+
+
 definePageMeta({
   middleware: "auth",
   layout: "custom",
@@ -112,7 +157,6 @@ const handleAddChar = () => {
     console.log(newChar);
     // Instances creation for character
     characterService.addCharacter(newChar);
-   
 
     console.log("NinjasDB :", characterService.getCharacters());
   }

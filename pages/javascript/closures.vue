@@ -19,24 +19,24 @@ definePageMeta({
 import { jsNavLinks } from "~/data/common.json";
 
 // ! prototype simple example
-const animal = {
-  eats: true,
-};
+// const animal = {
+//   eats: true,
+// };
 
-const rabbit = {
-  jumps: true,
-};
+// const rabbit = {
+//   jumps: true,
+// };
 
-rabbit.__proto__ = animal;
+// rabbit.__proto__ = animal;
 
-for (const key in rabbit) {
-  let isOwn = rabbit.hasOwnProperty(key);
-  if (isOwn) {
-    console.log(`Our : ${key}`);
-  } else {
-    console.log(`inherited : ${key}`);
-  }
-}
+// for (const key in rabbit) {
+//   let isOwn = rabbit.hasOwnProperty(key);
+//   if (isOwn) {
+//     console.log(`Our : ${key}`);
+//   } else {
+//     console.log(`inherited : ${key}`);
+//   }
+// }
 // console.log(rabbit);
 
 // ! __proto__ chaining example
