@@ -22,7 +22,10 @@
 <script setup>
 import AuthForm from "~/components/AuthForm.vue";
 import usePassValidato from "~/composables/usePassValidator";
+// import { signupFormFields } from "~/data/formData.json";
 const { validatePassword } = usePassValidato();
+
+// console.log(signupFormFields);
 
 const signupFormFields = ref([
   {

@@ -1,0 +1,33 @@
+{
+  "loginFormFields": {
+    "formtype": "login",
+    "inputFields": [
+      {
+        "name": "email",
+        "type": "text"
+      },
+      {
+        "name": "password",
+        "type": "password"
+      }
+    ]
+  },
+
+  "signupFormFields": {
+    "formtype": "signup",
+    "inputFields": [
+      {
+        "name": "name",
+        "type": "text"
+      },
+      {
+        "name": "email",
+        "type": "text"
+      },
+      {
+        "name": "password",
+        "type": "password"
+      }
+    ]
+  }
+}

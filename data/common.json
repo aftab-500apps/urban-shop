@@ -26,6 +26,10 @@
     {
       "title": "OOP",
       "path": "/javascript/oop"
+    },
+    {
+      "title": "Sorter",
+      "path": "/javascript/sorter"
     }
   ]
 }

@@ -1,3 +1,14 @@
+<script setup>
+const props = defineProps(["formFields", "submitButtonText", "handleSubmit"]);
+
+console.log(props.formFields);
+
+const handleSubmit = () => {
+  props.handleSubmit();
+};
+
+</script>
+
 <template>
   <form class="space-y-6" @submit.prevent="handleSubmit">
     <div v-for="(field, index) in formFields" :key="index">
@@ -5,12 +16,13 @@
         :for="field.name"
         class="block text-sm font-medium leading-6 text-slate-600"
       >
-        {{ field.label }}
+        Enter {{ field.label }}
       </label>
       <div class="mt-2">
         <input
           :id="field.name"
           :name="field.name"
+          :placeholder="`Enter ${field.name}`"
           v-model="field.value"
           :type="field.type"
           :autocomplete="field.autocomplete"
@@ -29,11 +41,3 @@
     </div>
   </form>
 </template>
-
-<script setup>
-const props = defineProps(["formFields", "submitButtonText", "handleSubmit"]);
-
-const handleSubmit = () => {
-  props.handleSubmit();
-};
-</script>
