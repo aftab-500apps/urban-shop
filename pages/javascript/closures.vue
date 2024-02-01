@@ -1,11 +1,11 @@
 <template>
   <SubNavbar :links="jsNavLinks" />
 
-  <SubHeading
+  <CommonSubHeading
     class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
   >
     Closures
-  </SubHeading>
+  </CommonSubHeading>
   <Feedback />
 </template>
 

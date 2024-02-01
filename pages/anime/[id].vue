@@ -12,13 +12,13 @@
         />
       </div>
       <div class="p-7">
-        <SubHeading class="text-4xl my-7">
+        <CommonSubHeading class="text-4xl my-7">
           {{ animeStore.animeDetails?.data?.title }}
-        </SubHeading>
+        </CommonSubHeading>
         <h3 class="text-2xl my-7">
           {{ animeStore.animeDetails?.data?.rating }}
         </h3>
-        <SubHeading class="font-500 border-b-2 mb-4 pb-2">Synopsis</SubHeading>
+        <CommonSubHeading class="font-500 border-b-2 mb-4 pb-2">Synopsis</CommonSubHeading>
         <p class="mb-7">{{ animeStore.animeDetails?.data?.synopsis }}</p>
       </div>
     </section>

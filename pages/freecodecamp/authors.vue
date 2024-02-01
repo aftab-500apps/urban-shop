@@ -1,7 +1,7 @@
 <template>
   <SubNavbar :links="fccNavLinks" />
   <!-- <SubNavbar /> -->
-  <Heading>News Authors Page</Heading>
+  <CommonHeading>News Authors Page</CommonHeading>
 
   <div class="grid grid-cols-2 m-auto gap-4 ml-4 mr-4 mb-4">
     <div
@@ -26,13 +26,13 @@
       >
     </div>
   </div>
-  <Button
+  <CommonButton
     v-if="visibleAuthors < authorsArr.length"
     class="border-2 p-2 rounded-lg border-red-300 flex m-auto mt-4 mb-10 hover:bg-red-600 hover:border-transparent hover:text-white hover:font-bold"
     @click="loadMoreAuthors"
   >
     Load More Button
-  </Button>
+  </CommonButton>
 </template>
 
 <script setup>
@@ -42,7 +42,7 @@ definePageMeta({
 });
 
 import { fccNavLinks } from "~/data/common.json";
-console.log(fccNavLinks);
+// console.log(fccNavLinks);
 
 const authorsArr = ref([]);
 const visibleAuthors = ref(8);

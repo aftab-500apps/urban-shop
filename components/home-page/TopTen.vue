@@ -13,9 +13,9 @@
 
     <div class="flex-grow w-full">
       <div class="text-center mb-2">
-        <SubHeading class="text-xl font-500 text-slate-600">{{
+        <CommonSubHeading class="text-xl font-500 text-slate-600">{{
           item.name
-        }}</SubHeading>
+        }}</CommonSubHeading>
       </div>
 
       <p class="text-gray-700 text-sm overflow-hidden line-clamp-5 mb-2">

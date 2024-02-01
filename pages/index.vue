@@ -1,9 +1,9 @@
 <template>
-  <Heading> Welcome to AnimeSaga </Heading>
+  <CommonHeading> Welcome to AnimeSaga </CommonHeading>
 
-  <RuleComponent />
+  <CommonRuleComponent />
 
-  <Rating />
+  <HomePageRating />
   <h3
     class="flex w-80 justify-center m-auto mt-10 text-center text-1xl font-bold leading-9 tracking-tight text-slate-600 shadow-md shadow-red-300 rounded"
   >

@@ -1,7 +1,7 @@
 <template>
   <section>
-    <Heading class="text-slate-600 text-center text-xl"
-      >ENTER ANIME SAGA</Heading
+    <CommonHeading class="text-slate-600 text-center text-xl"
+      >ENTER ANIME SAGA</CommonHeading
     >
 
     <section

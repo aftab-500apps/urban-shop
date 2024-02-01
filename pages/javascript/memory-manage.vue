@@ -1,13 +1,13 @@
 <template>
   <SubNavbar :links="jsNavLinks" />
 
-  <Heading>Memory management</Heading>
+  <CommonSubHeading class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500">Memory management</CommonSubHeading>
 
-  <SubHeading
+  <CommonSubHeading
     class="mt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
   >
     Reference to heap object
-  </SubHeading>
+  </CommonSubHeading>
 
   <div class="flex justify-center p-3 gap-3">
     <div
@@ -25,10 +25,10 @@
         placeholder="enter width"
         v-model="query_num"
       />
-      <Button
+      <CommonButton
         class="bg-red-200 text-black p-1 rounded border-2 border-black"
         @click="handleChange"
-        >Change</Button
+        >Change</CommonButton
       >
     </div>
   </div>

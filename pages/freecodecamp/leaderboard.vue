@@ -1,6 +1,6 @@
 <template>
   <SubNavbar :links="fccNavLinks" />
-  <Heading>Latest Topics</Heading>
+  <CommonHeading>Latest Topics</CommonHeading>
   <div class="p-3">
     <table class="w-full m-auto rounded-lg shadow-lg shadow-red-100 mt-4">
       <thead class="bg-red-400 text-white">
@@ -42,20 +42,20 @@
     </table>
 
     <div class="mt-4 flex justify-center items-center">
-      <Button
+      <CommonButton
         @click="prevPage"
         :disabled="startIndexPage === 0"
         class="px-4 py-2 mx-2 mb-10 bg-red-400 text-white rounded hover:bg-red-500"
       >
         Prev Page
-      </Button>
-      <Button
+      </CommonButton>
+      <CommonButton
         @click="nextPage"
         :disabled="endIndexPage === topics.length"
         class="px-4 py-2 mx-2 mb-10 bg-red-400 text-white rounded hover:bg-red-500"
       >
         Next Page
-      </Button>
+      </CommonButton>
     </div>
   </div>
 </template>

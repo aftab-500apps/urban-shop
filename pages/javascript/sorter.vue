@@ -16,6 +16,6 @@ const sortedValues = ref([]);
 
 const handleSorted = (values) => {
   sortedValues.value = values;
-  console.log("Sorted Values:", sortedValues.value);
+  // console.log("Sorted Values:", sortedValues.value);
 };
 </script>

@@ -9,10 +9,10 @@
       v-model="feedback"
       class="border-2 rounded-lg p-2 font-inherit"
     ></textarea>
-    <Button
+    <CommonButton
       class="flex justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
       @click="sendFeedback"
-      >Send Feedback</Button
+      >Send Feedback</CommonButton
     >
   </div>
 

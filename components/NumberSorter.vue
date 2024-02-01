@@ -4,8 +4,8 @@
   <main
     class="container m-auto flex flex-col justify-center items-center gap-4 mt-4 p-4"
   >
-    <SubHeading class="text-xl m-4 font-600 text-slate-600 text-center"
-      >Number Sorter</SubHeading
+    <CommonSubHeading class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
+      >Number Sorter</CommonSubHeading
     >
     <form class="flex flex-col justify-center items-center gap-6" @submit.prevent="">
       <h2>Input:</h2>
@@ -31,21 +31,21 @@
         </div>
         <span class="bracket">]</span>
       </fieldset>
-      <Button
+      <CommonButton
         class="flex w-full justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
         type="submit"
         @click="bubbleSort"
         :disabled="sorting"
-        >Bubble Sort</Button
+        >Bubble Sort</CommonButton
       >
-      <Button
+      <CommonButton
         class="flex w-full justify-center rounded-md bg-blue-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500"
         type="submit"
         :disabled="sorting"
         @click="selectionSort"
       >
         Selection Sort
-      </Button>
+      </CommonButton>
     </form>
     <div class="output-container text-center">
       <h2>Output:</h2>
@@ -93,15 +93,6 @@ const selectionSort = () => {
   emit("sorted", sortedValues.value);
 };
 
-// const sortInputArray = () => {
-//   //   sortedValues.value = [...values.value].sort((a, b) => a - b);
-//   bubbleSorter(values.value);
-//   selectionSorter(values.value);
-//   sortedValues.value = [...values.value];
-//   //   console.log(sortedValues.value);
-//   emit("sorted", sortedValues.value); // Emit the 'sorted' event with sorted values
-// };
-
 const bubbleSorter = (arr) => {
   //   console.log("from bubble sort", arr);
   for (let i = 0; i < arr.length; i++) {
@@ -113,7 +104,7 @@ const bubbleSorter = (arr) => {
       }
     }
   }
-  console.log("from bubble sort", arr);
+  // console.log("from bubble sort", arr);
   //   return arr;
 };
 
@@ -131,7 +122,7 @@ const selectionSorter = (arr) => {
     arr[i] = arr[minIndex];
     arr[minIndex] = temp;
   }
-  console.log("from selection sort", arr);
+  // console.log("from selection sort", arr);
 };
 </script>
 
