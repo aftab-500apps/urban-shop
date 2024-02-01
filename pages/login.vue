@@ -10,66 +10,12 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <AuthForm
-        :formFields="loginFormFields"
-        :submitButtonText="loginSubmitButtonText"
-        :handleSubmit="handleLogin"
-      />
+      <AuthForm :formFields="loginFormFields" />
     </div>
   </div>
 </template>
 
 <script setup>
 import AuthForm from "~/components/AuthForm.vue";
-
-const loginFormFields = ref([
-  {
-    name: "email",
-    label: "Email address",
-    type: "email",
-    value: "",
-    autocomplete: "email",
-  },
-  {
-    name: "password",
-    label: "Password",
-    type: "password",
-    value: "",
-    autocomplete: "current-password",
-  },
-]);
-
-const loginSubmitButtonText = "Log in";
-
-const handleLogin = () => {
-  const [emailField, passwordField] = loginFormFields.value;
-  const email = emailField.value;
-  const password = passwordField.value;
-
-  if (email === "" || password === "") {
-    alert("Please fill all the fields!");
-  } else {
-    const signupData = JSON.parse(localStorage.getItem("signupData")) || [];
-
-    if (Array.isArray(signupData)) {
-      const isValid = signupData.some((ele) => {
-        return ele.email === email && ele.password === password;
-      });
-      // console.log(isValid);
-      if (isValid) {
-        loginFormFields.value.forEach((field) => {
-          field.value = "";
-        });
-
-        alert(`Login successful for ${email}`);
-        localStorage.setItem("isLoggedIn", "true");
-        navigateTo("/anime");
-      } else {
-        alert("Invalid Credentials");
-      }
-    } else {
-      alert("Invalid credentials");
-    }
-  }
-};
+import { loginFormFields } from "~/data/formData.json";
 </script>

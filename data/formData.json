@@ -4,13 +4,14 @@
     "inputFields": [
       {
         "name": "email",
-        "type": "text"
+        "type": "email"
       },
       {
         "name": "password",
         "type": "password"
       }
-    ]
+    ],
+    "btnText": "Login"
   },
 
   "signupFormFields": {
@@ -22,12 +23,13 @@
       },
       {
         "name": "email",
-        "type": "text"
+        "type": "email"
       },
       {
         "name": "password",
         "type": "password"
       }
-    ]
+    ],
+    "btnText": "Sign up"
   }
 }
