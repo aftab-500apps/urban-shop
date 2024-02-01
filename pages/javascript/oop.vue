@@ -1,7 +1,8 @@
 <template>
   <SubNavbar :links="jsNavLinks" />
 
-  <CommonSubHeading class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
+  <CommonSubHeading
+    class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
     >Fan Page</CommonSubHeading
   >
   <div class="p-4 flex items-center m-auto">
@@ -43,9 +44,15 @@
       />
 
       <div class="m-4">
-        <h2 class="text-xl m-4 font-500 text-slate-600 text-center">Characters</h2>
+        <h2 class="text-xl m-4 font-500 text-slate-600 text-center">
+          Characters
+        </h2>
         <ul class="p-3 list-decimal">
-          <li class="text-slate-600 text-center" v-for="character in filteredCharacters" :key="character.name">
+          <li
+            class="text-slate-600 text-center"
+            v-for="character in filteredCharacters"
+            :key="character.name"
+          >
             {{ character.name }} from {{ character.universe }}
           </li>
         </ul>
@@ -55,57 +62,54 @@
 </template>
 
 <script setup>
-
-
-class Person {
-  name = ""; // or name;
-
-  constructor(name) {
-    this.name = name;
-  }
-
-  introduceSelf() {
-    console.log(`Hi, I am ${this.name}`);
-  }
-}
-
-// const sasuke = new Person("Sasuke");
-// sasuke.introduceSelf()
-
-class Professor extends Person {
-  teaches = "";
-
-  constructor(name, teaches) {
-    super(name);
-    this.teaches = teaches;
-  }
-
-  introduceSelf() {
-    // return `My name is ${this.name} & i will be teaching ${this.teaches}`;
-    console.log(`My name is ${this.name} & i will be teaching ${this.teaches}`);
-  }
-
-  #experience() {
-    console.log(`Master of 1000 jutsu.`);
-  }
-
-  masterOf() {
-    this.#experience();
-  }
-}
-
-const kakashi = new Professor("kakashi", "jutsu");
-// kakashi.introduceSelf();
-// kakashi.masterOf();
-// kakashi.#experience(); // not accesible
-
+import { jsNavLinks } from "~/data/common.json";
 
 definePageMeta({
   middleware: "auth",
   layout: "custom",
 });
 
-import { jsNavLinks } from "~/data/common.json";
+// class Person {
+//   name = ""; // or name;
+
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+//   introduceSelf() {
+//     console.log(`Hi, I am ${this.name}`);
+//   }
+// }
+
+// const sasuke = new Person("Sasuke");
+// sasuke.introduceSelf()
+
+// class Professor extends Person {
+//   teaches = "";
+
+//   constructor(name, teaches) {
+//     super(name);
+//     this.teaches = teaches;
+//   }
+
+//   introduceSelf() {
+//     // return `My name is ${this.name} & i will be teaching ${this.teaches}`;
+//     console.log(`My name is ${this.name} & i will be teaching ${this.teaches}`);
+//   }
+
+//   #experience() {
+//     console.log(`Master of 1000 jutsu.`);
+//   }
+
+//   masterOf() {
+//     this.#experience();
+//   }
+// }
+
+// const kakashi = new Professor("kakashi", "jutsu");
+// kakashi.introduceSelf();
+// kakashi.masterOf();
+// kakashi.#experience(); // not accesible
 
 // Character Class
 class Character {
@@ -116,9 +120,9 @@ class Character {
     this.name = name;
     this.universe = universe;
   }
-  // selfIntro() {
-  //   console.log(`Orewa ${this.name} from ${this.universe}`);
-  // }
+  selfIntro() {
+    console.log(`Orewa ${this.name} from ${this.universe}`);
+  }
 }
 
 // ! CharacterService Class
@@ -148,6 +152,10 @@ const characterService = new CharacterService();
 const newCharName = ref("");
 const newUniverseName = ref("");
 const searchQuery = ref("");
+
+
+
+
 
 // ! add new character
 const handleAddChar = () => {
@@ -183,3 +191,72 @@ watch(searchQuery, () => {
   updateFilteredCharacters();
 });
 </script>
+
+
+
+<!-- pages/index.vue -->
+<!-- 
+<template>
+  <div>
+    <RomanNumeralConverter title="Roman Numeral Converter" @conversion-result="handleConversionResult" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const handleConversionResult = (result) => {
+  console.log('Conversion Result:', result);
+  // Add your logic to handle the conversion result here
+};
+</script>
+
+ -->
+
+
+
+
+
+
+
+
+
+<!-- components/RomanNumeralConverter.vue -->
+
+<!-- <template>
+  <div>
+    <h1>{{ title }}</h1>
+    <label for="numberInput">Enter a number:</label>
+    <input v-model="number" type="number" id="numberInput" />
+    <button @click="convert">Convert</button>
+
+    <div v-if="romanNumeral">
+      <p>Result:</p>
+      <p>{{ romanNumeral }}</p>
+      <button @click="emitResult">Notify Parent</button>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, defineProps, defineEmits } from 'vue';
+
+const { title } = defineProps(['title']);
+const emit = defineEmits();
+
+const number = ref(0);
+const romanNumeral = ref(null);
+
+const convert = () => {
+  romanNumeral.value = toRoman(number.value);
+};
+
+const emitResult = () => {
+  emit('conversion-result', { number: number.value, romanNumeral: romanNumeral.value });
+};
+
+const toRoman = (number) => {
+  // ... (unchanged)
+};
+</script>
+ -->
