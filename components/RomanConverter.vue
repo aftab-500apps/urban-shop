@@ -1,15 +1,15 @@
 <script setup>
-const emit = defineEmits();
+const emit = defineEmits(['conversion-result']);
 
 const number = ref(0);
 const romanNumeral = ref(null);
 
-// const emitResult = () => {
-//   emit("conversion-result", {
-//     number: number.value,
-//     romanNumeral: romanNumeral.value,
-//   });
-// };
+const emitResult = () => {
+  emit("conversion-result", {
+    number: number.value,
+    romanNumeral: romanNumeral.value,
+  });
+};
 
 // console.log(emit);
 
