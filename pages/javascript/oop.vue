@@ -153,10 +153,6 @@ const newCharName = ref("");
 const newUniverseName = ref("");
 const searchQuery = ref("");
 
-
-
-
-
 // ! add new character
 const handleAddChar = () => {
   // console.log(characterService.getCharacters());
@@ -191,72 +187,3 @@ watch(searchQuery, () => {
   updateFilteredCharacters();
 });
 </script>
-
-
-
-<!-- pages/index.vue -->
-<!-- 
-<template>
-  <div>
-    <RomanNumeralConverter title="Roman Numeral Converter" @conversion-result="handleConversionResult" />
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue';
-
-const handleConversionResult = (result) => {
-  console.log('Conversion Result:', result);
-  // Add your logic to handle the conversion result here
-};
-</script>
-
- -->
-
-
-
-
-
-
-
-
-
-<!-- components/RomanNumeralConverter.vue -->
-
-<!-- <template>
-  <div>
-    <h1>{{ title }}</h1>
-    <label for="numberInput">Enter a number:</label>
-    <input v-model="number" type="number" id="numberInput" />
-    <button @click="convert">Convert</button>
-
-    <div v-if="romanNumeral">
-      <p>Result:</p>
-      <p>{{ romanNumeral }}</p>
-      <button @click="emitResult">Notify Parent</button>
-    </div>
-  </div>
-</template>
-
-<script setup>
-import { ref, defineProps, defineEmits } from 'vue';
-
-const { title } = defineProps(['title']);
-const emit = defineEmits();
-
-const number = ref(0);
-const romanNumeral = ref(null);
-
-const convert = () => {
-  romanNumeral.value = toRoman(number.value);
-};
-
-const emitResult = () => {
-  emit('conversion-result', { number: number.value, romanNumeral: romanNumeral.value });
-};
-
-const toRoman = (number) => {
-  // ... (unchanged)
-};
-</script>
- -->

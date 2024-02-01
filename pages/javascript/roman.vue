@@ -1,7 +1,8 @@
 <template>
   <SubNavbar :links="jsNavLinks"></SubNavbar>
 
-  <RomanConverter @conversion-result="handleResult" />
+  <RomanConverter  />
+  <!-- @conversion-result="handleResult" -->
 </template>
 
 <script setup>
@@ -12,7 +13,7 @@ definePageMeta({
 
 import { jsNavLinks } from "~/data/common.json";
 
-const handleResult = (res) => {
-  console.log(res);
-};
+// const handleResult = (res) => {
+//   console.log(res);
+// };
 </script>
