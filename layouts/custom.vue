@@ -4,17 +4,21 @@
       <ul
         class="flex rounded-lg justify-around items-center px-4 py-4 border-2 border-b-200 shadow-md"
       >
-        <li
-          v-for="link in linksObj"
-          class="cursor-pointer border border-red-300 w-32 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
-        >
-          <NuxtLink :to="`${link.to}`">{{ link.title }}</NuxtLink>
-        </li>
-        <li
-          class="cursor-pointer border border-red-300 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg hover:uppercase"
-        >
-          <NuxtLink to="#" @click="handleLogout">Logout</NuxtLink>
-        </li>
+        <NuxtLink v-for="link in linksObj" :to="`${link.to}`">
+          <li
+            class="cursor-pointer border border-red-300 w-32 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
+          >
+            {{ link.title }}
+          </li>
+        </NuxtLink>
+
+        <NuxtLink to="#" @click="handleLogout">
+          <li
+            class="cursor-pointer border border-red-300 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg hover:uppercase"
+          >
+            Logout
+          </li>
+        </NuxtLink>
       </ul>
     </nav>
   </header>

@@ -18,6 +18,5 @@
 </template>
 
 <script setup>
-import AuthForm from "~/components/AuthForm.vue";
 import { signupFormFields } from "~/data/formData.json";
 </script>
