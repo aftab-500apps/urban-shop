@@ -4,6 +4,13 @@
       <ul
         class="flex rounded-lg justify-around items-center px-4 py-4 border-2 border-b-200 shadow-md"
       >
+        <!-- <NuxtLink to="/">
+          <li
+            class="cursor-pointer border border-red-300 w-32 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
+          >
+            Home
+          </li>
+        </NuxtLink> -->
         <NuxtLink v-for="link in linksObj" :to="`${link.to}`">
           <li
             class="cursor-pointer border border-red-300 w-32 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
@@ -35,26 +42,26 @@ const linksObj = [
     title: "Home",
     to: "/",
   },
-  {
-    id: 5,
-    title: "Anime",
-    to: "/anime",
-  },
-  {
-    id: 2,
-    title: "Plugin",
-    to: "/plugin",
-  },
-  {
-    id: 3,
-    title: "JavaScript",
-    to: "/javascript/closures",
-  },
-  {
-    id: 4,
-    title: "Freecodecamp",
-    to: "/freecodecamp/leaderboard",
-  },
+  // {
+  //   id: 5,
+  //   title: "Anime",
+  //   to: "/anime",
+  // },
+  // {
+  //   id: 2,
+  //   title: "Plugin",
+  //   to: "/plugin",
+  // },
+  // {
+  //   id: 3,
+  //   title: "JavaScript",
+  //   to: "/javascript/closures",
+  // },
+  // {
+  //   id: 4,
+  //   title: "Freecodecamp",
+  //   to: "/freecodecamp/leaderboard",
+  // },
   {
     id: 41,
     title: "Sign up",

@@ -10,6 +10,8 @@
     Top 10 characters
   </h3>
 
+  <CommonLoader v-if="animeStore.loading" />
+
   <HomePageTopTen
     v-for="(item, index) in animeStore.animeTop?.data?.slice(0, 10)"
     :item="item"

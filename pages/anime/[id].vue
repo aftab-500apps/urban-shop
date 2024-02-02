@@ -1,30 +1,32 @@
 <template>
-  <div class="card">
+  <div class="details-container pt-12">
+    <CommonLoader v-if="animeStore.loading" />
     <section
       v-if="animeStore.animeDetails?.data"
-      class="grid grid-cols-2 gap-2 text-slate-500"
+      class="grid grid-cols-2 items-center justify-center text-slate-500"
     >
-      <div class="p-7">
+      <div class="p-1">
         <img
           :src="`${animeStore.animeDetails?.data?.images?.jpg?.large_image_url}`"
           :alt="`${animeStore.animeDetails?.data?.title}`"
-          class="mx-auto my-7 rounded-lg"
+          class="m-auto w-80 h-full rounded-lg imgBanner"
         />
       </div>
-      <div class="p-7">
-        <CommonSubHeading class="text-4xl my-7">
+      <div class="flex flex-col gap-6 justify-center">
+        <CommonSubHeading class="text-4xl">
           {{ animeStore.animeDetails?.data?.title }}
         </CommonSubHeading>
-        <h3 class="text-2xl my-7">
+        <h3 class="text-2xl">
           {{ animeStore.animeDetails?.data?.rating }}
         </h3>
-        <CommonSubHeading class="font-500 border-b-2 mb-4 pb-2">Synopsis</CommonSubHeading>
-        <p class="mb-7">{{ animeStore.animeDetails?.data?.synopsis }}</p>
+        <CommonSubHeading class="font-500 border-b-2"
+          >Synopsis</CommonSubHeading
+        >
+        <p class="mr-10 text-justify">
+          {{ animeStore.animeDetails?.data?.synopsis }}
+        </p>
       </div>
     </section>
-    <p v-else>
-      <NuxtLoadingIndicator />
-    </p>
   </div>
 </template>
 
@@ -44,3 +46,16 @@ onMounted(async () => {
   await animeStore.fetchDataById(id);
 });
 </script>
+
+<style scoped>
+.details-container {
+  height: 100vh;
+  margin: auto;
+}
+
+.imgBanner:hover {
+  box-shadow: rgba(240, 46, 170, 0.4) -5px 5px,
+    rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px,
+    rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+</style>

@@ -5,15 +5,15 @@ export const useAnimeStore = defineStore("animeapi", () => {
   const animeDetails = ref(null);
   const animeTop = ref(null);
   const currentPage = ref(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 15;
   const totalPages = ref(1);
+  const loading = ref(false);
 
   const fetchData = async () => {
     try {
+      loading.value = true;
       const data = await fetch(
-        `https://api.jikan.moe/v4/anime?page=${
-          currentPage.value
-        }&limit=${itemsPerPage}`
+        `https://api.jikan.moe/v4/anime?page=${currentPage.value}&limit=${itemsPerPage}`
       );
       const res = await data.json();
 
@@ -25,27 +25,50 @@ export const useAnimeStore = defineStore("animeapi", () => {
     } catch (error) {
       console.log(error);
       throw error;
+    } finally {
+      loading.value = false;
     }
   };
 
   const fetchDataById = async (id: number) => {
     try {
+      loading.value = true;
       const response = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
       const result = await response.json();
       animeDetails.value = result;
       return result;
     } catch (error) {
       throw error;
+    } finally {
+      loading.value = false;
     }
   };
 
   const fetchTopAnime = async () => {
     try {
+      loading.value = true;
       const response = await fetch(`https://api.jikan.moe/v4/top/characters`);
       const result = await response.json();
       animeTop.value = result;
     } catch (error) {
       throw error;
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  const searchAnime = async (query: string) => {
+    try {
+      loading.value = true;
+      const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`);
+      const result = await response.json();
+      animeData.value = result;
+      return result;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    } finally {
+      loading.value = false;
     }
   };
 
@@ -59,5 +82,7 @@ export const useAnimeStore = defineStore("animeapi", () => {
     currentPage,
     totalPages,
     itemsPerPage,
+    loading,
+    searchAnime,
   };
 });

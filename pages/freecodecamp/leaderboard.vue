@@ -2,6 +2,7 @@
   <SubNavbar :links="fccNavLinks" />
   <CommonHeading>Latest Topics</CommonHeading>
   <div class="p-3">
+    <CommonLoader v-if="fccLoader" />
     <table class="w-full m-auto rounded-lg shadow-lg shadow-red-100 mt-4">
       <thead class="bg-red-400 text-white">
         <tr>
@@ -11,6 +12,7 @@
           <th class="py-2 px-4">Activity</th>
         </tr>
       </thead>
+
       <tbody>
         <tr
           v-for="item in topics.slice(startIndexPage, endIndexPage)"
@@ -69,15 +71,16 @@ definePageMeta({
 import { fccNavLinks } from "~/data/common.json";
 
 import { ref, onMounted } from "vue";
-
 const forumLatest = "https://forum-proxy.freecodecamp.rocks/latest";
 const forumTopicUrl = "https://forum.freecodecamp.org/t/";
 
 const topics = ref([]);
 const users = ref([]);
+const fccLoader = ref(false);
 
 onMounted(async () => {
   try {
+    fccLoader.value = true;
     const res = await fetch(forumLatest);
     const data = await res.json();
     topics.value = data.topic_list.topics;
@@ -86,6 +89,8 @@ onMounted(async () => {
     // console.log(topics.value);
   } catch (err) {
     console.error(err);
+  } finally {
+    fccLoader.value = false;
   }
 });
 
