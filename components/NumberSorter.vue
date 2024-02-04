@@ -2,9 +2,9 @@
   <SubNavbar :links="jsNavLinks" />
 
   <main
-    class="container m-auto flex flex-col justify-center items-center gap-4 mt-4 p-4"
+    class="container m-auto flex flex-col justify-center items-center gap-4 p-4"
   >
-    <CommonSubHeading class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
+    <CommonSubHeading class="underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
       >Number Sorter</CommonSubHeading
     >
     <form class="flex flex-col justify-center items-center gap-6" @submit.prevent="">

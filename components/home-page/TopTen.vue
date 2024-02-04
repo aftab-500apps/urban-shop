@@ -1,6 +1,6 @@
 <template>
   <section
-    class="w-4/5 p-10 flex flex-col lg:flex-row md-flex-row items-center justify-evenly gap-3 m-auto my-10 bg-whitesmoke rounded-md shadow-md shadow-red-100"
+    class="w-4/5 p-10 flex my-10 flex-col lg:flex-row md-flex-row items-center justify-evenly gap-6 m-auto bg-whitesmoke rounded-md shadow-sm shadow-red-500"
     :class="{ 'flex-row-reverse': index % 2 !== 0 }"
   >
     <div class="flex-shrink-0 mr-4">
@@ -18,7 +18,7 @@
         }}</CommonSubHeading>
       </div>
 
-      <p class="text-gray-700 text-sm overflow-hidden line-clamp-5 mb-2">
+      <p class="text-gray-700 dark:text-slate-100 text-sm overflow-hidden line-clamp-5 mb-2">
         {{ item.about }}
       </p>
     </div>

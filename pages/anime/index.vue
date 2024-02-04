@@ -4,7 +4,7 @@
 
     <div class="w-72 m-auto flex flex-col gap-2">
       <input placeholder="Search for Anime" v-model="searchQuery" @input="onSearchInput" type="text"
-        class="block bg-white text-center text-slate-600 w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
+        class="block bg-white text-center text-slate-600 w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-red-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6" />
 
       <CommonButton class="flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6  shadow-sm"
         :disabled="searchQuery.trim() === ''" :class="{

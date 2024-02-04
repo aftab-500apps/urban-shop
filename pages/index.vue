@@ -1,23 +1,30 @@
 <template>
-  <CommonHeading> Welcome to AnimeSaga </CommonHeading>
+  <div class="dark:bg-slate-900 dark:text-slate-100 pb-12">
+    <CommonHeading> Welcome to AnimeSaga </CommonHeading>
 
-  <CommonRuleComponent />
+    <!-- <CommonRuleComponent /> -->
+    <div class="flex justify-evenly items-center flex-wrap gap-4 p-4 mt-4" >
+      <HomePageRating />
+      <h3
+        class="flex w-80 uppercase dark:text-slate-100 justify-center m-auto text-center text-1xl font-bold leading-9 tracking-tight text-slate-600 shadow-sm shadow-red-500 rounded"
+      >
+        Top Characters
+      </h3>
 
-  <HomePageRating />
-  <h3
-    class="flex w-80 justify-center m-auto mt-10 text-center text-1xl font-bold leading-9 tracking-tight text-slate-600 shadow-sm shadow-red-300 rounded"
-  >
-    Top 10 characters
-  </h3>
+      <div class="w-80"></div>
+    </div>
 
-  <CommonLoader v-if="animeStore.loading" />
+    <br />
 
-  <HomePageTopTen
-    v-for="(item, index) in animeStore.animeTop?.data?.slice(0, 10)"
-    :item="item"
-    :index="index"
-  >
-  </HomePageTopTen>
+    <CommonLoader v-if="animeStore.loading" />
+
+    <HomePageTopTen
+      v-for="(item, index) in animeStore.animeTop?.data?.slice(0, 10)"
+      :item="item"
+      :index="index"
+    >
+    </HomePageTopTen>
+  </div>
 </template>
 
 <script setup>
