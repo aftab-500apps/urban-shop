@@ -49,7 +49,7 @@
 
     </div>
 
-    <section class="m-auto grid grid-cols-5 justify-center items-center gap-7 p-1" v-if="animeData?.data">
+    <section class="m-auto mb-12 flex flex-wrap justify-center items-center gap-7 p-1" v-if="animeData?.data">
       <ShowCard v-for=" item  in  animeData.data " :item="item" />
     </section>
   </section>

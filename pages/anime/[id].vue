@@ -5,12 +5,12 @@
       <CommonButton class="w-32 px-4 py-2 ml-8 mb-10 text-white rounded bg-red-500 hover:bg-red-600">Back</CommonButton>
     </router-link>
     <CommonLoader v-if="animeStore.loading" />
-    <section v-if="animeStore.animeDetails?.data" class="grid grid-cols-2 items-center justify-center text-slate-500">
+    <section v-if="animeStore.animeDetails?.data" class="flex flex-wrap lg:grid lg:grid-cols-2 xl:grid xl:grid-cols-2 2xl:grid 2xl:grid-cols-2 items-center justify-center text-slate-500">
       <div class="p-1">
         <img :src="`${animeStore.animeDetails?.data?.images?.jpg?.large_image_url}`"
           :alt="`${animeStore.animeDetails?.data?.title}`" class="m-auto w-80 h-full rounded-lg imgBanner" />
       </div>
-      <div class="flex flex-col gap-6 justify-center">
+      <div class="flex flex-col gap-6 justify-center p-12">
         <CommonSubHeading class="text-4xl">
           {{ animeStore.animeDetails?.data?.title }}
         </CommonSubHeading>
