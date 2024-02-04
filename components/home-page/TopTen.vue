@@ -1,6 +1,6 @@
 <template>
   <section
-    class="w-4/5 p-10 flex items-center justify-evenly gap-3 m-auto my-10 bg-whitesmoke rounded-md shadow-md shadow-red-100"
+    class="w-4/5 p-10 flex flex-col lg:flex-row md-flex-row items-center justify-evenly gap-3 m-auto my-10 bg-whitesmoke rounded-md shadow-md shadow-red-100"
     :class="{ 'flex-row-reverse': index % 2 !== 0 }"
   >
     <div class="flex-shrink-0 mr-4">
