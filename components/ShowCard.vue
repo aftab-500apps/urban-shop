@@ -1,7 +1,7 @@
 <template>
   <div
     :key="item.mal_id"
-    class="showCard m-auto mt-10 text-center rounded-lg shadow-lg shadow-red-300"
+    class="showCard m-auto mt-10 text-center rounded-lg shadow-md shadow-red-300"
   >
     <NuxtLink :to="`/anime/${item.mal_id}`">
       <img

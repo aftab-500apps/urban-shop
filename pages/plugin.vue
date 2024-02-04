@@ -35,7 +35,7 @@ onMounted(() => {
 
   <div>
     <h3
-      class="flex w-80 justify-center m-auto mt-10 text-center text-1xl font-bold leading-9 tracking-tight text-slate-600 shadow-md shadow-red-300 rounded"
+      class="flex w-80 justify-center m-auto mt-10 text-center text-1xl font-bold leading-9 tracking-tight text-slate-600 shadow-sm shadow-red-300 rounded"
     >
       Even Numbers : {{ even(10).join(", ") }}
     </h3>
@@ -44,13 +44,13 @@ onMounted(() => {
   <CommonRuleComponent />
 
   <div
-    class="flex w-full justify-center flex-col items-center p-4 shadow-md shadow-red-300 m-auto mt-10 rounded"
+    class="flex justify-center flex-col w-1/2 items-center p-4 shadow-sm shadow-red-300 m-auto rounded"
   >
     <CommonButton
-      class="flex w-half justify-center items-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
+      class="flex justify-center items-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
       @click="fetchPun()"
     >
-      get random pun
+      Get Random Pun
     </CommonButton>
     <CommonHeading>
       {{ pun.pun }}

@@ -35,7 +35,7 @@
 
   <ol class="flex flex-col justify-center p-5 list-decimal gap-3 ml-5">
     <li>
-      box 2 is a reference to box 1 which is created with keys color and width.
+      box 2 is a reference to box 1 which is created with width.
     </li>
     <li>
       After assigning box 2 variable to box 1 it creates a reference for box 2

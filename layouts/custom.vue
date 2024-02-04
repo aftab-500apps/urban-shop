@@ -1,34 +1,27 @@
 <template>
   <header>
     <nav class="m-6">
-      <ul
-        class="flex rounded-lg justify-around items-center px-4 py-4 border-2 border-b-200 shadow-md"
-      >
-        <!-- <NuxtLink to="/">
+      <ul class="flex flex-wrap justify-center gap-2 m-auto rounded-lg lg:justify-around items-center px-4 py-4 border-2 border-b-200 shadow-md lg:flex-row md:flex-wrap sm:flex-wrap">
+        <NuxtLink v-for="link in linksObj" :to="`${link.to}`"
+          :class="{ 'router-link-exact-active': isLinkActive(link.to) }">
           <li
-            class="cursor-pointer border border-red-300 w-32 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
-          >
-            Home
-          </li>
-        </NuxtLink> -->
-        <NuxtLink v-for="link in linksObj" :to="`${link.to}`">
-          <li
-            class="cursor-pointer border border-red-300 w-32 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg"
-          >
+            class="cursor-pointer border m-auto border-red-300 w-32 h-10 flex justify-center items-center rounded-md hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg">
             {{ link.title }}
           </li>
         </NuxtLink>
 
-        <NuxtLink to="#" @click="handleLogout">
+        <NuxtLink @click="confirmLogout">
           <li
-            class="cursor-pointer border border-red-300 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:border-none hover:shadow-lg hover:uppercase"
-          >
+            class="cursor-pointer border border-red-600 w-20 h-10 flex justify-center items-center rounded-md text-slate-600 hover:bg-red-600 hover:text-white hover:font-bold hover:shadow-lg hover:uppercase">
             Logout
           </li>
         </NuxtLink>
       </ul>
     </nav>
   </header>
+
+
+
 
   <slot />
 
@@ -41,6 +34,13 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+const isActive = ref(false);
+
+const isLinkActive = (to) => {
+  const route = useRoute();
+  return route.path === to;
+};
 
 const linksObj = [
   {
@@ -50,13 +50,13 @@ const linksObj = [
   },
   {
     id: 2,
-    title: "Plugin",
-    to: "/plugin",
+    title: "Anime",
+    to: "/anime",
   },
   {
     id: 3,
-    title: "Anime",
-    to: "/anime",
+    title: "Plugin",
+    to: "/plugin",
   },
   {
     id: 4,
@@ -72,10 +72,16 @@ const linksObj = [
 
 const isLoggedIn = ref(false);
 
+const confirmLogout = () => {
+  const isConfirm = window.confirm(`Are you sure you want to logout?`);
+  if (isConfirm) {
+    handleLogout();
+  }
+};
+
 const handleLogout = () => {
   localStorage.setItem("isLoggedIn", "false");
   isLoggedIn.value = false;
-  alert("Logged out succesfully");
   navigateTo("/login");
 };
 
@@ -89,4 +95,19 @@ watch(
     isLoggedIn.value = newValue === "true";
   }
 );
+
+
+
 </script>
+
+<style scoped>
+.router-link-exact-active {
+  /* Your styling for the active link goes here */
+  background-color: #dc2626;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  /* Add any other styles you want for the active link */
+}
+</style>

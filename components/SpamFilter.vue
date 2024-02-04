@@ -28,7 +28,7 @@
 
   <div class="container flex justify-around items-center">
     <SpamContainer title="SPAM" :data="spamArr" />
-    <SpamContainer title="Spam Words" :data="spamWords" />
+    <SpamContainer title="SPAM WORDS" :data="spamWords" />
     <SpamContainer title="WORK" :data="workArr" />
   </div>
 </template>

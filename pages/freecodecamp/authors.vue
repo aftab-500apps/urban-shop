@@ -28,10 +28,10 @@
   </div>
   <CommonButton
     v-if="visibleAuthors < authorsArr.length"
-    class="border-2 p-2 rounded-lg border-red-300 flex m-auto mt-4 mb-10 hover:bg-red-600 hover:border-transparent hover:text-white hover:font-bold"
+    class="border-2 p-2 rounded-lg border-red-300 flex bg-red-400  m-auto mt-4 mb-10 hover:bg-red-600 hover:border-transparent hover:text-white hover:font-bold"
     @click="loadMoreAuthors"
   >
-    Load More Button
+    More
   </CommonButton>
 </template>
 

@@ -1,10 +1,6 @@
 <template>
-  <div class="w-60 p-4 h-60 shadow-md shadow-red-300">
-    <h3
-      :class="`mt-4 text-center text-1xl font-bold leading-9 tracking-tight ${
-        title === 'SPAM' ? 'text-red-700' : 'text-slate-700'
-      }`"
-    >
+  <div class="w-60 h-60 shadow-sm shadow-red-300">
+    <h3 class="mt-4 text-center text-1xl text-slate-500 font-bold leading-9 tracking-tight">
       {{ title }}
     </h3>
     <div>
