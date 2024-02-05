@@ -1,5 +1,5 @@
 <script setup>
-const emit = defineEmits(['conversion-result']);
+const emit = defineEmits(["conversion-result"]);
 
 const number = ref(0);
 const romanNumeral = ref(null);
@@ -58,10 +58,10 @@ const toRoman = (number) => {
     >Roman Converter</CommonSubHeading
   >
 
-  <div
-    class="flex flex-col justify-center items-center gap-3 p-4 mt-4 mb-5"
-  >
-    <label for="numberInput" class="font-bold text-slate-600 dark:text-slate-100"
+  <div class="flex flex-col justify-center items-center gap-3 p-4 mt-4 mb-5">
+    <label
+      for="numberInput"
+      class="font-bold text-slate-600 dark:text-slate-100"
       >Enter a number:</label
     >
     <input
@@ -71,7 +71,7 @@ const toRoman = (number) => {
       id="numberInput"
     />
     <CommonButton
-      class="bg-red-200 text-black p-2 rounded border-2 border-black"
+      class="flex w-40 justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
       @click="handleConvert"
       >Convert</CommonButton
     >
@@ -79,9 +79,11 @@ const toRoman = (number) => {
 
   <div class="flex flex-col justify-center items-center gap-3 p-3 mb-5">
     <p class="font-bold text-slate-600 dark:text-slate-100">Result:</p>
-    <p class="font-bold text-2xl text-slate-700 dark:text-slate-100">{{ romanNumeral }}</p>
+    <p class="font-bold text-2xl text-slate-700 dark:text-slate-100">
+      {{ romanNumeral }}
+    </p>
     <CommonButton
-      class="bg-red-200 text-black p-2 rounded border-2 border-black"
+      class="flex w-40 justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
       @click="emitResult"
       >Notify Parent</CommonButton
     >

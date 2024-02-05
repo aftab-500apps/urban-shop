@@ -26,7 +26,7 @@
     </h3>
   </div>
 
-  <div class="container flex justify-around items-center ">
+  <div class="container flex justify-around items-center flex-wrap gap-4">
     <SpamContainer title="SPAM" :data="spamArr" />
     <SpamContainer title="SPAM WORDS" :data="spamWords" />
     <SpamContainer title="WORK" :data="workArr" />

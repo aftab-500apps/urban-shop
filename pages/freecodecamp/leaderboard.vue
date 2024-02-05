@@ -4,7 +4,6 @@
 
   <!-- ! pagination -->
   <div class="pt-4 flex justify-center items-center dark:bg-slate-900">
-
     <CommonButton
       @click="prevPage"
       :disabled="startIndexPage === 0"
@@ -38,7 +37,7 @@
     </CommonButton>
   </div>
 
-  <div class="dark:bg-slate-900 pb-8">
+  <!-- <div class="dark:bg-slate-900 pb-8">
     <CommonLoader v-if="fccLoader" />
     <table class="w-4/5 m-auto shadow-sm shadow-red-500">
       <thead class="bg-red-400 text-white">
@@ -83,6 +82,55 @@
         </tr>
       </tbody>
     </table>
+  </div> -->
+
+  <div class="dark:bg-slate-900 p-8">
+    <CommonLoader v-if="fccLoader" />
+    <div class="overflow-x-auto">
+      <table class="w-full m-auto shadow-sm shadow-red-500">
+        <thead class="bg-red-400 text-white">
+          <tr>
+            <th class="py-2 px-4">Topics</th>
+            <th class="py-2 px-4">Replies</th>
+            <th class="py-2 px-4">Views</th>
+            <th class="py-2 px-4">Activity</th>
+          </tr>
+        </thead>
+
+        <tbody v-if="topics">
+          <tr
+            v-for="item in topics.slice(startIndexPage, endIndexPage)"
+            :key="item.id"
+            class="border-b border-gray-300"
+          >
+            <td
+              class="py-4 px-4 h-32 flex flex-col justify-center items-start gap-1"
+            >
+              <a
+                :href="`${forumTopicUrl}${item.slug}/${item.id}`"
+                target="_blank"
+                class="text-red-400 font-bold rounded hover:underline"
+              >
+                {{ item.title }}
+              </a>
+
+              <span class="p-1 border-2 border-red-100 dark:text-slate-100">{{
+                forumCategory(item.category_id)
+              }}</span>
+            </td>
+            <td class="py-2 px-4 text-center dark:text-slate-100">
+              {{ item.posts_count - 1 }}
+            </td>
+            <td class="py-2 px-4 text-center dark:text-slate-100">
+              {{ viewCount(item.views) }}K
+            </td>
+            <td class="py-2 px-4 text-center dark:text-slate-100">
+              {{ timeAgo(item.bumped_at) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 

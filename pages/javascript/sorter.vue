@@ -1,5 +1,7 @@
 <template>
   <JavaScriptContainer>
+    <SubNavbar :links="jsNavLinks" />
+
     <div>
       <NumberSorter @sorted="handleSorted" />
     </div>
@@ -12,6 +14,7 @@ definePageMeta({
   layout: "custom",
 });
 
+import { jsNavLinks } from "~/data/common.json";
 import { ref } from "vue";
 
 const sortedValues = ref([]);

@@ -9,11 +9,13 @@
     </CommonSubHeading>
 
     <h3
-      class="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-slate-500"
+      class="mt-4 mb-4 text-center text-2xl font-bold leading-9 tracking-tight text-red-500"
     >
       Task Scheduler
     </h3>
-    <div class="m-auto w-1/2 border-2 rounded-lg flex flex-col mb-3">
+    <div
+      class="m-auto w-4/5 lg:w-1/2 md:w-1/2 sm:w-4/5 border-2 rounded-lg flex flex-col mb-3"
+    >
       <div class="flex flex-col gap-2 justify-center items-center p-3">
         <div>
           <label for="taskName" class="text-slate-600 dark:text-slate-100"
@@ -44,7 +46,7 @@
         </div>
       </div>
 
-      <div class="text-center p-3">
+      <div class="text-center p-3 w-full">
         <CommonSubHeading class="text-slate-600 dark:text-slate-100"
           >Task List</CommonSubHeading
         >
@@ -52,10 +54,17 @@
           <li
             v-for="task in tasks"
             :key="task.taskName"
-            class="flex justify-around gap-2 items-center dark:text-slate-100"
+            class="flex justify-between gap-2 items-center dark:text-slate-100"
           >
-            {{ task.taskName }} - Due Date: {{ formatDate(task.dueDate) }} -
-            Completed: {{ task.completed ? "Yes" : "No" }}
+            <div>
+              {{ task.taskName }}
+            </div>
+
+            <div>- Due Date: {{ formatDate(task.dueDate) }} -</div>
+            <div>
+              Completed:
+              {{ task.completed ? "Yes" : "No" }}
+            </div>
             <CommonButton
               class="border-2 py-1 px-3 rounded-md bg-red-400 text-white font-bold shadow-sm hover:bg-red-500"
               @click="markTaskAsCompleted(task.taskName)"

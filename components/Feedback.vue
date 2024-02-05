@@ -4,7 +4,7 @@
       Provide Feedback
     </h3>
     <div class="flex justify-center m-auto mt-4 items-center gap-2">
-      <input v-model="feedback" class="border-2 rounded-lg p-2 font-inherit"/>
+      <input v-model="feedback" placeholder="Enter feedback ..." class="border-2 rounded-lg p-2 font-inherit"/>
       <CommonButton
         class="flex justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
         @click="sendFeedback">
@@ -13,10 +13,10 @@
     </div>
 
     <div class="mt-4">
-      <ul class="px-4 overflow-auto w-1/2 m-auto shadow-md shadow-red-500 rounded-lg">
+      <ul class="px-4 overflow-auto w-4/5 sm:w-4/5 md:w-4/5 lg:w-1/2 m-auto shadow-md shadow-red-500 rounded-lg">
         <li v-for="(feedback, index) in getFeedbacks()" :key="index" class="feedback-item">
           <div class="flex justify-between items-center">
-            <span class="text-xl text-slate-500 capitalize">{{ feedback.msg }}</span>
+            <span class="text-xl text-slate-500 capitalize dark:text-slate-100">{{ feedback.msg }}</span>
             <button @click="removeFeedback(index)" class="text-red-500 hover:text-red-700">Remove</button>
           </div>
           <small class="text-gray-500">{{ feedback.timestamp }}</small>
@@ -24,7 +24,7 @@
       </ul>
     </div>
 
-    <div class="mt-2 text-center text-sm text-gray-600 dark:text-slate-100">
+    <div class="mt-2 p-2 text-center text-sm text-gray-600 dark:text-slate-100">
       Total Feedbacks: {{ getFeedbacks().length }}
     </div>
   </div>

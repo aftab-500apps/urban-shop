@@ -29,7 +29,7 @@
   <div class="p-6 dark:bg-slate-900">
     <CommonButton
       v-if="visibleAuthors < authorsArr.length"
-      class="border-2 p-2 rounded-lg border-red-300 flex bg-red-400 m-auto hover:bg-red-600 hover:border-transparent hover:text-white hover:font-bold"
+      class="flex w-40 justify-center m-auto rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
       @click="loadMoreAuthors"
     >
       More

@@ -30,14 +30,16 @@
           v-model="query_num"
         />
         <CommonButton
-          class="bg-red-200 text-black p-1 rounded border-2 border-black"
+          class="flex w-24 justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
           @click="handleChange"
           >Change</CommonButton
         >
       </div>
     </div>
 
-    <ol class="flex flex-col justify-center p-5 list-decimal gap-3 ml-5 dark:text-slate-100">
+    <ol
+      class="flex flex-col justify-center p-5 list-decimal gap-3 ml-5 dark:text-slate-100"
+    >
       <li>box 2 is a reference to box 1 which is created with width.</li>
       <li>
         After assigning box 2 variable to box 1 it creates a reference for box 2

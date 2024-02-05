@@ -20,12 +20,6 @@ onMounted(() => {
 
 <template>
   <div class=" dark:bg-slate-900 dark:text-slate-100 pb-8">
-    <CommonSubHeading
-      class="pt-10 text-center text-2xl font-500 leading-9 tracking-tight text-slate-600"
-    >
-      Plugins
-    </CommonSubHeading>
-
     <div
       class="flex min-h-full flex-1 flex-col items-center gap-3 justify-center px-6 py-2 lg:px-8"
     >
@@ -45,7 +39,7 @@ onMounted(() => {
     <CommonRuleComponent />
 
     <div
-      class="flex justify-center flex-col w-1/2 items-center p-4 shadow-sm shadow-red-500 m-auto rounded"
+      class="flex justify-center flex-col gap-4 w-1/2 items-center p-4 shadow-sm shadow-red-500 m-auto rounded sm:w-3/4 md:w-3/4"
     >
       <CommonButton
         class="flex justify-center items-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"

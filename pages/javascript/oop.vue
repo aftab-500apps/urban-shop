@@ -7,7 +7,7 @@
     class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
     >Fan Page</CommonSubHeading
     >
-    <div class="p-4 flex items-center m-auto">
+    <div class="p-4 flex flex-wrap items-center m-auto">
     <div class="flex flex-col m-auto">
       <CommonSubHeading class="text-xl m-4 font-500 text-slate-600 text-center"
       >Add your fav characters</CommonSubHeading

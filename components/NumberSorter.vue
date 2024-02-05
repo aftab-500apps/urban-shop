@@ -1,5 +1,4 @@
 <template>
-  <SubNavbar :links="jsNavLinks" />
 
   <main
     class="container m-auto flex flex-col justify-center items-center gap-4 p-4"
@@ -65,12 +64,11 @@
 
 <script setup>
 import { ref } from "vue";
-import { jsNavLinks } from "~/data/common.json";
 
 const emit = defineEmits(["sorted"]);
 
 const options = Array.from({ length: 10 }, (_, index) => index);
-const values = ref([8, 2, 4, 10, 3]);
+const values = ref([8, 2, 4, 1, 3]);
 const sortedValues = ref([]);
 
 const sorting = ref(false); // Add a ref to track sorting state

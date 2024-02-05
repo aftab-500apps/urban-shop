@@ -1,7 +1,7 @@
 <template>
   <nav class="dark:bg-slate-900 dark:text-slate-100">
     <ul
-      class="m-auto w-1/2 flex rounded-lg justify-around items-center px-2 py-2 shadow-md shadow-red-500 dark:shadow-red-500"
+      class="m-auto w-4/5 flex flex-wrap rounded-lg justify-center gap-4 lg:w-1/2 md:w-3/4 sm:w-4/5 items-center px-2 py-4 shadow-sm shadow-red-500"
     >
       <NuxtLink :to="`${path}`" v-for="{ title, path } in links">
         <li
