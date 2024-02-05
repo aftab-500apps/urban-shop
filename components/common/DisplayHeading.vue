@@ -1,6 +1,6 @@
 <template>
   <h1
-    class="special dark:text-slate-100 text-slate-700 text-center text-5xl uppercase font-bold"
+    class="special text-slate-100 text-center text-5xl uppercase font-bold"
   >
     <slot />
   </h1>

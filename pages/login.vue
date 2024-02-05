@@ -1,13 +1,8 @@
 <template>
   <JavaScriptContainer
     style="
-      background:
-        /* top, transparent black, faked with gradient */ linear-gradient(
-          rgba(0, 0, 0, 0.7),
-          rgba(0, 0, 0, 0.7)
-        ),
-        /* bottom, image */
-          url(https://r4.wallpaperflare.com/wallpaper/322/317/102/naruto-shippuuden-manga-anime-akatsuki-wallpaper-12ebbaf552def9c29d46b896a1965d6b.jpg);
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url(https://r4.wallpaperflare.com/wallpaper/322/317/102/naruto-shippuuden-manga-anime-akatsuki-wallpaper-12ebbaf552def9c29d46b896a1965d6b.jpg);
       background-size: cover;
       background-position: center;
     "
@@ -16,7 +11,7 @@
       <CommonDisplayHeading> Enter Anime Saga </CommonDisplayHeading>>
       <div class="sm:mx-auto sm:w-full sm:max-w-sm mt-16">
         <CommonSubHeading
-          class="mt-10 text-center text-2xl font-bold text-slate-500"
+          class="mt-10 text-center text-2xl font-bold text-slate-100"
         >
           Log in
         </CommonSubHeading>

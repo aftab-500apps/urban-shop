@@ -59,7 +59,7 @@ const toRoman = (number) => {
   >
 
   <div
-    class="flex flex-col justify-center items-center gap-3 border-2 p-4 mt-4 mb-5"
+    class="flex flex-col justify-center items-center gap-3 p-4 mt-4 mb-5"
   >
     <label for="numberInput" class="font-bold text-slate-600 dark:text-slate-100"
       >Enter a number:</label

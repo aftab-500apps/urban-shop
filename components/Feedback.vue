@@ -1,78 +1,6 @@
-<!-- <template>
-  <h3
-    class="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-slate-500"
-  >
-    Provide Feedback
-  </h3>
-  <div class="flex justify-center m-auto mt-4 items-center gap-2">
-    <textarea
-      v-model="feedback"
-      class="border-2 rounded-lg p-2 font-inherit"
-    ></textarea>
-    <CommonButton
-      class="flex justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
-      @click="sendFeedback"
-      >Send Feedback</CommonButton
-    >
-  </div>
-
-  <div>
-    <ul
-      class="h-44 border-2 overflow-auto w-1/2 m-auto mt-4 shadow-md shadow-red-100 rounded-lg "
-    >
-      <List
-        v-for="feedback in getFeedbacks()"
-        class="text-xl"
-        :msg="feedback"
-        :key="feedback"
-      />
-    </ul>
-  </div>
-</template> -->
-
-<!-- <script setup>
-const feedbackGenerator = () => {
-  const feedback = ref("");
-  let feedbacks = ref([]);
-
-  const sendFeedback = () => {
-    if (feedback.value.trim() !== "") {
-      feedbacks.value.push(feedback.value);
-      feedback.value = "";
-    }
-  };
-
-  const getFeedbacks = () => {
-    return feedbacks.value;
-  };
-
-  return { feedback, sendFeedback, getFeedbacks };
-};
-
-const { feedback, sendFeedback, getFeedbacks } = feedbackGenerator();
-
-
-// closure example
-// const outerFunction = () => {
-//   let outerVariable = "I am outer variable";
-
-//   const innerFunction = () => {
-//     console.log(outerVariable);
-//   };
-
-//   return innerFunction;
-// };
-
-// const closure = outerFunction();
-// closure();
-
-// console.log("Running");
-</script> -->
-
-
 <template>
   <div>
-    <h3 class="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-slate-500">
+    <h3 class="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-slate-500 dark:text-slate-100">
       Provide Feedback
     </h3>
     <div class="flex justify-center m-auto mt-4 items-center gap-2">
@@ -85,7 +13,7 @@ const { feedback, sendFeedback, getFeedbacks } = feedbackGenerator();
     </div>
 
     <div class="mt-4">
-      <ul class="border-2 px-4 overflow-auto w-1/2 m-auto shadow-md shadow-red-100 rounded-lg">
+      <ul class="px-4 overflow-auto w-1/2 m-auto shadow-md shadow-red-500 rounded-lg">
         <li v-for="(feedback, index) in getFeedbacks()" :key="index" class="feedback-item">
           <div class="flex justify-between items-center">
             <span class="text-xl text-slate-500 capitalize">{{ feedback.msg }}</span>
@@ -96,7 +24,7 @@ const { feedback, sendFeedback, getFeedbacks } = feedbackGenerator();
       </ul>
     </div>
 
-    <div class="mt-2 text-center text-sm text-gray-600">
+    <div class="mt-2 text-center text-sm text-gray-600 dark:text-slate-100">
       Total Feedbacks: {{ getFeedbacks().length }}
     </div>
   </div>
@@ -136,7 +64,7 @@ const { feedback, sendFeedback, removeFeedback, getFeedbacks } = feedbackGenerat
 <style scoped>
 .feedback-item {
   padding: 10px;
-  border-bottom: 1px solid #e2e2e2;
+  /* border-bottom: 1px solid #e2e2e2; */
 }
 
 .feedback-item button {
