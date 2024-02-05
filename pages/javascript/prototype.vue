@@ -1,4 +1,6 @@
 <template>
+
+    <JavaScriptContainer>
   <SubNavbar :links="jsNavLinks" />
 
   <CommonSubHeading
@@ -15,7 +17,7 @@
   <div class="m-auto w-1/2 border-2 rounded-lg flex flex-col mb-3">
     <div class="flex flex-col gap-2 justify-center items-center p-3">
       <div>
-        <label for="taskName" class="text-slate-600">Task Name:</label>
+        <label for="taskName" class="text-slate-600 dark:text-slate-100">Task Name:</label>
         <input
           v-model="taskName"
           type="text"
@@ -23,7 +25,7 @@
           class="block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
         />
 
-        <label for="dueDate" class="text-slate-600">Due Date:</label>
+        <label for="dueDate" class="text-slate-600 dark:text-slate-100">Due Date:</label>
         <input
           v-model="dueDate"
           type="date"
@@ -32,7 +34,7 @@
         />
 
         <CommonButton
-          class="bg-red-400 rounded flex shadow-sm hover:bg-red-500 justify-center px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm m-auto mt-3 mb-3"
+          class="bg-red-400 rounded flex hover:bg-red-500 justify-center px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm m-auto mt-3 mb-3"
           @click="addTask"
           >Add Task</CommonButton
         >
@@ -40,12 +42,12 @@
     </div>
 
     <div class="text-center p-3">
-      <CommonSubHeading class="text-slate-600">Task List</CommonSubHeading>
+      <CommonSubHeading class="text-slate-600 dark:text-slate-100">Task List</CommonSubHeading>
       <ul>
         <li
           v-for="task in tasks"
           :key="task.taskName"
-          class="flex justify-around gap-2 items-center"
+          class="flex justify-around gap-2 items-center dark:text-slate-100"
         >
           {{ task.taskName }} - Due Date: {{ formatDate(task.dueDate) }} -
           Completed: {{ task.completed ? "Yes" : "No" }}
@@ -59,6 +61,7 @@
       </ul>
     </div>
   </div>
+  </JavaScriptContainer>
 </template>
 
 <script setup>

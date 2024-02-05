@@ -5,6 +5,9 @@ export default {
 
   theme: {
     extend: {},
+    fontFamily: {
+      display: ["Protest Revolution"],
+    },
   },
   plugins: [],
 };

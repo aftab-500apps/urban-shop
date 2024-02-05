@@ -1,8 +1,11 @@
 <template>
-  <SubNavbar :links="jsNavLinks"></SubNavbar>
+  <JavaScriptContainer>
 
-  <RomanConverter @conversion-result="handleResult" />
-</template>
+    <SubNavbar :links="jsNavLinks"></SubNavbar>
+    
+    <RomanConverter @conversion-result="handleResult" />
+  </JavaScriptContainer>
+  </template>
 
 <script setup>
 definePageMeta({

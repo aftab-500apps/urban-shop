@@ -61,7 +61,7 @@ const toRoman = (number) => {
   <div
     class="flex flex-col justify-center items-center gap-3 border-2 p-4 mt-4 mb-5"
   >
-    <label for="numberInput" class="font-bold text-slate-600"
+    <label for="numberInput" class="font-bold text-slate-600 dark:text-slate-100"
       >Enter a number:</label
     >
     <input
@@ -78,8 +78,8 @@ const toRoman = (number) => {
   </div>
 
   <div class="flex flex-col justify-center items-center gap-3 p-3 mb-5">
-    <p class="font-bold text-slate-600">Result:</p>
-    <p class="font-bold text-2xl text-slate-700">{{ romanNumeral }}</p>
+    <p class="font-bold text-slate-600 dark:text-slate-100">Result:</p>
+    <p class="font-bold text-2xl text-slate-700 dark:text-slate-100">{{ romanNumeral }}</p>
     <CommonButton
       class="bg-red-200 text-black p-2 rounded border-2 border-black"
       @click="emitResult"

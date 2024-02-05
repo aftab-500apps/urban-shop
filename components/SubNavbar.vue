@@ -1,10 +1,12 @@
 <template>
-  <nav>
+  <nav class="dark:bg-slate-900 dark:text-slate-100">
     <ul
-      class="m-auto w-1/2 flex rounded-lg justify-around items-center px-2 py-2 border-2 border-b-200 shadow-md shadow-red-100">
+      class="m-auto w-1/2 flex rounded-lg justify-around items-center px-2 py-2 border-2 border-b-200 shadow-md shadow-red-100 dark:shadow-red-500"
+    >
       <NuxtLink :to="`${path}`" v-for="{ title, path } in links">
         <li
-          class="cursor-pointer  border border-red-600 w-auto px-2 h-10 flex justify-center items-center rounded-md hover:bg-red-600 hover:text-white  hover:shadow-lg">
+          class="cursor-pointer border border-red-600 w-auto px-2 h-10 flex justify-center items-center rounded-md hover:bg-red-600 hover:text-white hover:shadow-lg"
+        >
           {{ title }}
         </li>
       </NuxtLink>

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="dark:bg-slate-900 dark:text-slate-100">
     <CommonHeading class="text-slate-600 text-center text-xl">ENTER ANIME SAGA</CommonHeading>
 
     <div class="w-72 m-auto flex flex-col gap-2">
@@ -49,7 +49,7 @@
 
     </div>
 
-    <section class="m-auto mb-12 flex flex-wrap justify-center items-center gap-7 p-1" v-if="animeData?.data">
+    <section class="m-auto pb-12 flex flex-wrap justify-center items-center gap-7 p-8" v-if="animeData?.data">
       <ShowCard v-for=" item  in  animeData.data " :item="item" />
     </section>
   </section>

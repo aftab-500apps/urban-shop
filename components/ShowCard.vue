@@ -1,7 +1,7 @@
 <template>
   <div
     :key="item.mal_id"
-    class="showCard m-auto mt-10 text-center rounded-lg shadow-md shadow-red-300"
+    class="showCard m-auto mt-10 text-center rounded-lg shadow-md shadow-red-500"
   >
     <NuxtLink :to="`/anime/${item.mal_id}`">
       <img
@@ -10,16 +10,16 @@
         class="showcardImg rounded-t-lg cursor-pointer shadow-red-400"
       />
     </NuxtLink>
-    <h4 class="m-auto text-slate-800 text-xs font-bold p-2 text-center w-46">
+    <h4 class="m-auto text-slate-800 text-xs font-bold p-2 text-center w-46 dark:text-slate-100">
       {{ item.title }}
     </h4>
     <p
-      class="m-auto text-slate-600 text-xs font-bold p-2 text-center w-32 hover:text-red-600"
+      class="m-auto text-slate-600 text-xs font-bold p-2 text-center w-32 hover:text-red-600 dark:text-slate-100"
     >
       Episodes : {{ item.episodes }}
     </p>
     <p
-      class="m-auto text-slate-600 text-xs font-bold p-2 text-center w-32 hover:text-red-600"
+      class="m-auto text-slate-600 text-xs font-bold p-2 text-center w-32 hover:text-red-600 dark:text-slate-100"
     >
       {{ item.status }}
     </p>

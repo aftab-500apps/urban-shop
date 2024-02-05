@@ -104,7 +104,7 @@ const handleSubmit = () => {
 <template>
   <form class="space-y-6" @submit.prevent="handleSubmit">
     <div v-for="(field, index) in formFields.inputFields" :key="index">
-      <label :for="field.name" class="block text-sm   font-medium leading-6 text-slate-500">
+      <label :for="field.name" class="block text-sm   font-medium leading-6 text-slate-500 dark:text-slate-100">
         Enter {{ field.name }}
       </label>
       <div class="mt-2">

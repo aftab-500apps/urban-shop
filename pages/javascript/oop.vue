@@ -1,64 +1,67 @@
 <template>
-  <SubNavbar :links="jsNavLinks" />
+  <JavaScriptContainer>
 
-  <CommonSubHeading
+    <SubNavbar :links="jsNavLinks" />
+    
+    <CommonSubHeading
     class="mt-4 underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
     >Fan Page</CommonSubHeading
-  >
-  <div class="p-4 flex items-center m-auto">
+    >
+    <div class="p-4 flex items-center m-auto">
     <div class="flex flex-col m-auto">
       <CommonSubHeading class="text-xl m-4 font-500 text-slate-600 text-center"
-        >Add your fav characters</CommonSubHeading
+      >Add your fav characters</CommonSubHeading
       >
-
+      
       <input
-        type="text"
-        placeholder="Enter Character Name"
-        v-model="newCharName"
-        class="block w-full m-auto text-center text-grey-600 mt-3 mb-3 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
+      type="text"
+      placeholder="Enter Character Name"
+      v-model="newCharName"
+      class="block w-full m-auto text-center text-grey-600 mt-3 mb-3 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
       />
-
+      
       <input
-        type="text"
-        placeholder="Enter Universe Name"
-        v-model="newUniverseName"
-        class="block w-full m-auto text-center text-grey-600 mt-3 mb-3 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
+      type="text"
+      placeholder="Enter Universe Name"
+      v-model="newUniverseName"
+      class="block w-full m-auto text-center text-grey-600 mt-3 mb-3 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
       />
-
+      
       <CommonButton
-        @click="handleAddChar"
-        class="flex w-full m-auto justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
-        >Add Character</CommonButton
+      @click="handleAddChar"
+      class="flex w-full m-auto justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
+      >Add Character</CommonButton
       >
     </div>
     <div class="flex flex-col m-auto">
       <CommonSubHeading class="text-xl m-4 font-500 text-slate-600 text-center"
-        >Know the universe</CommonSubHeading
+      >Know the universe</CommonSubHeading
       >
-
+      
       <input
-        type="text"
-        placeholder="Search"
-        v-model="searchQuery"
-        class="block w-full m-auto text-center text-grey-600 mt-3 mb-3 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
+      type="text"
+      placeholder="Search"
+      v-model="searchQuery"
+      class="block w-full m-auto text-center text-grey-600 mt-3 mb-3 rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-2 ring-inset ring-gray-400 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-300 sm:text-sm sm:leading-6"
       />
-
+      
       <div class="m-4">
         <h2 class="text-xl m-4 font-500 text-slate-600 text-center">
           Characters
         </h2>
         <ul class="p-3 list-decimal">
           <li
-            class="text-slate-600 text-center"
-            v-for="character in filteredCharacters"
-            :key="character.name"
+          class="text-slate-600 text-center dark:text-slate-100"
+          v-for="character in filteredCharacters"
+          :key="character.name"
           >
-            {{ character.name }} from {{ character.universe }}
-          </li>
-        </ul>
-      </div>
+          {{ character.name }} from {{ character.universe }}
+        </li>
+      </ul>
     </div>
   </div>
+</div>
+</JavaScriptContainer>
 </template>
 
 <script setup>

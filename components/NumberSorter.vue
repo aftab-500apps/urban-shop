@@ -4,13 +4,13 @@
   <main
     class="container m-auto flex flex-col justify-center items-center gap-4 p-4"
   >
-    <CommonSubHeading class="underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500"
+    <CommonSubHeading class="underline text-center text-3xl font-bold leading-9 tracking-tight text-slate-500 dark:text-slate-100"
       >Number Sorter</CommonSubHeading
     >
     <form class="flex flex-col justify-center items-center gap-6" @submit.prevent="">
-      <h2>Input:</h2>
+      <h2 class="dark:text-slate-100">Input:</h2>
       <fieldset class="flex gap-2 items-center">
-        <span class="bracket">[</span>
+        <span class="bracket dark:text-slate-100">[</span>
         <div v-for="(value, index) in values" :key="index">
           <select
             v-model="values[index]"
@@ -29,7 +29,7 @@
           </select>
           <span class="comma" v-if="index < values.length - 1">,</span>
         </div>
-        <span class="bracket">]</span>
+        <span class="bracket dark:text-slate-100">]</span>
       </fieldset>
       <CommonButton
         class="flex w-full justify-center rounded-md bg-red-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500"
@@ -48,16 +48,16 @@
       </CommonButton>
     </form>
     <div class="output-container text-center">
-      <h2>Output:</h2>
+      <h2 class="dark:text-slate-100">Output:</h2>
       <div class="output-array flex gap-2 justify-center items-center">
-        <span class="bracket">[</span>
+        <span class="bracket dark:text-slate-100">[</span>
         <div v-for="(num, index) in sortedValues" :key="index">
-          <span class="output-value p-2" :id="`output-value-${index}`">{{
+          <span class="output-value p-2 dark:text-slate-100" :id="`output-value-${index}`">{{
             num
           }}</span>
-          <span class="comma" v-if="index < sortedValues.length - 1">,</span>
+          <span class="comma dark:text-slate-100" v-if="index < sortedValues.length - 1">,</span>
         </div>
-        <span class="bracket">]</span>
+        <span class="bracket dark:text-slate-100">]</span>
       </div>
     </div>
   </main>

@@ -5,7 +5,7 @@
     Spam Filter
   </CommonSubHeading>
 
-  <div class="flex flex-col items-center justify-center gap-4">
+  <div class="flex flex-col items-center justify-center gap-4 dark:text-slate-100">
     <input
       type="text"
       v-model="msg"
@@ -18,7 +18,7 @@
       Check
     </CommonButton>
     <h3
-      :class="`mt-4 underline text-center text-1xl font-bold leading-9 tracking-tight ${
+      :class="`mt-4 underline text-center text-1xl font-bold leading-9 tracking-tight dark:text-slate-100 ${
         result ? 'text-red-600' : 'text-slate-600'
       } `"
     >
@@ -26,7 +26,7 @@
     </h3>
   </div>
 
-  <div class="container flex justify-around items-center">
+  <div class="container flex justify-around items-center ">
     <SpamContainer title="SPAM" :data="spamArr" />
     <SpamContainer title="SPAM WORDS" :data="spamWords" />
     <SpamContainer title="WORK" :data="workArr" />

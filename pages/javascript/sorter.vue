@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <NumberSorter @sorted="handleSorted" />
-  </div>
+  <JavaScriptContainer>
+    <div>
+      <NumberSorter @sorted="handleSorted" />
+    </div>
+  </JavaScriptContainer>
 </template>
 
 <script setup>

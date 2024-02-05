@@ -1,7 +1,7 @@
 <template>
   <div class="loader-container">
-    <div class="loader bg-white">
-      <div class="inner-loader"></div>
+    <div class="loader dark:bg-slate-900">
+      <div class="inner-loader dark:bg-slate-900"></div>
     </div>
   </div>
 </template>
@@ -21,14 +21,12 @@
   border: 7px solid transparent; /* Border added for better visibility */
   border-top-color: red; /* You can adjust the color */
   animation: spin 1s linear infinite;
-  background-color: white;
 }
 
 .inner-loader {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: white;
 }
 
 @keyframes spin {

@@ -1,48 +1,46 @@
 <template>
   <SubNavbar :links="fccNavLinks" />
-  <CommonHeading>Latest Topics</CommonHeading>
+  <CommonHeading class="dark:bg-slate-900 p-4">Latest Topics</CommonHeading>
 
   <!-- ! pagination -->
-  <div class="mt-4 flex justify-center items-center">
-    <!-- <CommonButton @click="prevPage" :disabled="startIndexPage === 0"
-      :class="{ 'bg-red-400': !startIndexPage, 'bg-red-100': startIndexPage, 'text-white': !startIndexPage, 'text-gray-500': startIndexPage }"
-      class="px-4 py-2 mx-2 mb-10 text-white rounded hover:bg-red-500">
-      Prev Page
-    </CommonButton>
-    <CommonButton @click="nextPage" :disabled="endIndexPage === topics.length"
-      :class="{ 'bg-red-400': !endIndexPage, 'bg-gray-300': endIndexPage, 'text-white': !endIndexPage, 'text-gray-500': endIndexPage }"
-      class="px-4 py-2 mx-2 mb-10 text-white rounded hover:bg-red-500">
-      Next Page
-    </CommonButton> -->
+  <div class="pt-4 flex justify-center items-center dark:bg-slate-900">
 
-    <CommonButton @click="prevPage" :disabled="startIndexPage === 0" :class="{
-      'bg-gray-300': startIndexPage === 0,
-      'bg-red-400': startIndexPage !== 0,
-      'text-gray-500': startIndexPage === 0,
-      'text-white': startIndexPage !== 0,
-      'hover:bg-red-600': startIndexPage !== 0,
-      'cursor-not-allowed': startIndexPage === 0
-    }" class="px-4 py-2 mx-2 mb-10 text-white rounded">
+    <CommonButton
+      @click="prevPage"
+      :disabled="startIndexPage === 0"
+      :class="{
+        'bg-gray-300': startIndexPage === 0,
+        'bg-red-400': startIndexPage !== 0,
+        'text-gray-500': startIndexPage === 0,
+        'text-white': startIndexPage !== 0,
+        'hover:bg-red-600': startIndexPage !== 0,
+        'cursor-not-allowed': startIndexPage === 0,
+      }"
+      class="px-4 py-2 mx-2 mb-10 text-white rounded"
+    >
       Prev Page
     </CommonButton>
 
-    <CommonButton @click="nextPage" :disabled="endIndexPage === topics.length" :class="{
-      'bg-gray-300': endIndexPage === topics.length,
-      'bg-red-400': endIndexPage !== topics.length,
-      'text-gray-500': endIndexPage === topics.length,
-      'text-white': endIndexPage !== topics.length,
-      'hover:bg-red-600': endIndexPage !== topics.length,
-      'cursor-not-allowed': endIndexPage === topics.length
-    }" class="px-4 py-2 mx-2 mb-10 text-white rounded">
+    <CommonButton
+      @click="nextPage"
+      :disabled="endIndexPage === topics.length"
+      :class="{
+        'bg-gray-300': endIndexPage === topics.length,
+        'bg-red-400': endIndexPage !== topics.length,
+        'text-gray-500': endIndexPage === topics.length,
+        'text-white': endIndexPage !== topics.length,
+        'hover:bg-red-600': endIndexPage !== topics.length,
+        'cursor-not-allowed': endIndexPage === topics.length,
+      }"
+      class="px-4 py-2 mx-2 mb-10 text-white rounded"
+    >
       Next Page
     </CommonButton>
-
-
   </div>
 
-  <div class="p-3">
+  <div class="dark:bg-slate-900 pb-8">
     <CommonLoader v-if="fccLoader" />
-    <table class="w-4/5 m-auto shadow-lg shadow-red-100">
+    <table class="w-4/5 m-auto shadow-sm shadow-red-500">
       <thead class="bg-red-400 text-white">
         <tr>
           <th class="py-2 px-4">Topics</th>
@@ -53,27 +51,38 @@
       </thead>
 
       <tbody>
-        <tr v-for="item in topics.slice(startIndexPage, endIndexPage)" :key="item.id" class="border-b border-gray-300">
-          <td class="py-2 px-4 h-20 flex flex-col justify-center items-start gap-1">
-            <a :href="`${forumTopicUrl}${item.slug}/${item.id}`" target="_blank"
-              class="text-red-400 font-bold rounded hover:underline">
+        <tr
+          v-for="item in topics.slice(startIndexPage, endIndexPage)"
+          :key="item.id"
+          class="border-b border-gray-300"
+        >
+          <td
+            class="py-2 px-4 h-20 flex flex-col justify-center items-start gap-1"
+          >
+            <a
+              :href="`${forumTopicUrl}${item.slug}/${item.id}`"
+              target="_blank"
+              class="text-red-400 font-bold rounded hover:underline"
+            >
               {{ item.title }}
             </a>
 
-            <span class="p-1 border-2 border-red-100">{{
+            <span class="p-1 border-2 border-red-100 dark:text-slate-100">{{
               forumCategory(item.category_id)
             }}</span>
           </td>
-          <td class="py-2 px-4 text-center">{{ item.posts_count - 1 }}</td>
-          <td class="py-2 px-4 text-center">{{ viewCount(item.views) }}K</td>
-          <td class="py-2 px-4 text-center">
+          <td class="py-2 px-4 text-center dark:text-slate-100">
+            {{ item.posts_count - 1 }}
+          </td>
+          <td class="py-2 px-4 text-center dark:text-slate-100">
+            {{ viewCount(item.views) }}K
+          </td>
+          <td class="py-2 px-4 text-center dark:text-slate-100">
             {{ timeAgo(item.bumped_at) }}
           </td>
         </tr>
       </tbody>
     </table>
-
-
   </div>
 </template>
 

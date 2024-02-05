@@ -1,5 +1,5 @@
 <template>
-  <div class="details-container pt-12">
+  <div class="details-container pt-12 dark:bg-slate-900">
 
     <router-link to="/anime" >
       <CommonButton class="w-32 px-4 py-2 ml-8 mb-10 text-white rounded bg-red-500 hover:bg-red-600">Back</CommonButton>
