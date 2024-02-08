@@ -1,7 +1,7 @@
 <template>
   <SubNavbar :links="fccNavLinks" />
   <!-- <SubNavbar /> -->
-  <CommonHeading class="dark:bg-slate-900 p-4">News Authors Page</CommonHeading>
+  <CommonHeading class="dark:bg-slate-900 p-4 mt-2">News Authors Page</CommonHeading>
 
   <div class="grid grid-cols-2 m-auto gap-4 p-4 dark:bg-slate-900">
     <div

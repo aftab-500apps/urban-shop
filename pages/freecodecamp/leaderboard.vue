@@ -1,6 +1,6 @@
 <template>
   <SubNavbar :links="fccNavLinks" />
-  <CommonHeading class="dark:bg-slate-900 p-4">Latest Topics</CommonHeading>
+  <CommonHeading class="dark:bg-slate-900 p-4 mt-2">Latest Topics</CommonHeading>
 
   <!-- ! pagination -->
   <div class="pt-4 flex justify-center items-center dark:bg-slate-900">
