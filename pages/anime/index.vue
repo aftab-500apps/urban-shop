@@ -53,7 +53,6 @@
       <ShowCard v-for=" item  in  animeData.data " :item="item" />
     </section>
   </section>
-
 </template>
 
 <script setup>
@@ -65,6 +64,7 @@ definePageMeta({
 import { toRefs, onMounted } from "vue";
 import { useAnimeStore } from "~/stores/useAnimeStore";
 import useDebounce from "~/composables/useDebounce";
+import EventBus from "~/eventbus"
 
 const { animeData, currentPage, totalPages, loading } = toRefs(useAnimeStore());
 const searchQuery = ref("");
@@ -84,8 +84,13 @@ const handleSearchAnime = async () => {
   searchQuery.value.trim() === "";
 };
 
+const showMit = (data) => {
+  console.log(data);
+}
+
 onMounted(() => {
   useAnimeStore().fetchData();
+  EventBus.on('like-emit', showMit)
 });
 
 const goToPage = async (page) => {
