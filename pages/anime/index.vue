@@ -1,6 +1,6 @@
 <template>
   <section class="dark:bg-slate-900 dark:text-slate-100">
-    <CommonHeading class="text-slate-600 text-center text-xl">ENTER ANIME SAGA</CommonHeading>
+    <CommonHeading class="text-slate-600 text-center text-xl">ANIME SAGA</CommonHeading>
 
     <div class="w-72 m-auto flex flex-col gap-2">
       <input placeholder="Search for Anime" v-model="searchQuery" @input="onSearchInput" type="text"
